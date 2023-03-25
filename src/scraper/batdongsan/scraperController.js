@@ -31,8 +31,11 @@ const scraperController = async () => {
         };
       });
 
-      const csv = await converter.json2csv(dataCSV);
-      fs.writeFileSync(item.pathCSV, csv);
+      const csvResult = await converter.json2csv(dataCSV);
+      fs.writeFileSync(item.pathCSV, csvResult, (err) => {
+        if (err) console.log("Write data failed: " + err);
+        console.log("Write success");
+      });
 
       // Close browser
       await browser.close();
