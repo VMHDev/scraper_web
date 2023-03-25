@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/VMHDev/scraper_web#readme",
   "dependencies": {
+    "json-2-csv": "^4.0.0",
+    "moment": "^2.29.4",
     "puppeteer": "^19.8.0"
   }
 }

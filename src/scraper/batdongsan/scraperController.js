@@ -1,7 +1,9 @@
 const fs = require("fs");
+const converter = require("json-2-csv");
 const startBrowser = require("./../../configs/browser");
 const scraperPrice = require("./scraperPrice");
 const { SCRAPER_LIST_PAGE } = require("./../../constants/batdongsan");
+const { removeUnit, processDate } = require("./../../utils/batdongsan/commons");
 
 const scraperController = async () => {
   try {
@@ -18,6 +20,19 @@ const scraperController = async () => {
         if (err) console.log("Write data failed: " + err);
         console.log("Write success");
       });
+
+      // Write file csv
+      const dataCSV = info.map((item) => {
+        return {
+          price: removeUnit(item?.price),
+          area: removeUnit(item?.area),
+          pricePerM2: removeUnit(item?.pricePerM2),
+          date: processDate(item?.date),
+        };
+      });
+
+      const csv = await converter.json2csv(dataCSV);
+      fs.writeFileSync(item.pathCSV, csv);
 
       // Close browser
       await browser.close();

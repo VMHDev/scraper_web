@@ -34,8 +34,6 @@ const scrapeCategory = (browser, url) =>
         }
       );
 
-      console.log("dataItem", dataItem);
-
       // await pageInfo.waitForTimeout(5 * 1000);
       await pageInfo.close();
       console.log(">> Tab đã đóng...");
