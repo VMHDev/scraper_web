@@ -1,7 +1,8 @@
 const fs = require("fs");
 const scraperPrice = require("./scraperPrice");
 
-const urlSite = "https://batdongsan.com.vn/ban-can-ho-chung-cu-opal-riverside";
+const urlSite =
+  "https://batdongsan.com.vn/ban-can-ho-chung-cu-opal-riverside?sortValue=1";
 const urlExport = "data/batdongsan.json";
 
 const scraperController = async (browserInstance) => {

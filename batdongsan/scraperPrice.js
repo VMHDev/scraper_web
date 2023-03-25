@@ -8,26 +8,31 @@ const scrapeCategory = (browser, url) =>
       await pageInfo.waitForSelector("#boxSearchForm");
       console.log(">> Page load done...");
 
-      const headerData = await pageInfo.$eval(
-        "body > div.re__main > div > div.re__main-content",
-        (el) => {
-          return {
-            title: el.querySelector("h1.re__srp-title").innerText,
-          };
+      const dataItem = await pageInfo.$$eval(
+        "#product-lists-web > div.js__card ",
+        (els) => {
+          let tmpDataItem = els.map((el, idx) => {
+            return {
+              id: idx,
+              title: el.querySelector("a")?.title,
+              link: el.querySelector("a")?.href,
+              price: el.querySelector(
+                "a > div.re__card-info > div.re__card-info-content > div > div.re__card-config.js__card-config > span.re__card-config-price.js__card-config-item"
+              )?.innerText,
+              area: el.querySelector(
+                "a > div.re__card-info > div.re__card-info-content > div > div.re__card-config.js__card-config > span.re__card-config-area.js__card-config-item"
+              )?.innerText,
+              pricePerM2: el.querySelector(
+                "a > div.re__card-info > div.re__card-info-content > div > div.re__card-config.js__card-config > span.re__card-config-price_per_m2.js__card-config-item"
+              )?.innerText,
+              date: el.querySelector(
+                "a > div.re__card-info > div.re__card-contact > div.re__card-published-info > div > span"
+              )?.innerText,
+            };
+          });
+          return tmpDataItem;
         }
       );
-
-      console.log("headerData", headerData);
-
-      const dataItem = await pageInfo.$$eval("#product-lists-web", (els) => {
-        dataItem = els.map((el) => {
-          return {
-            title: el.querySelector("div.js__card > a").title,
-            link: el.querySelector("div.js__card > a").href,
-          };
-        });
-        return dataItem;
-      });
 
       console.log("dataItem", dataItem);
 
