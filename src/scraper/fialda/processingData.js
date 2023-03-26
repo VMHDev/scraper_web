@@ -5,13 +5,13 @@ const processingData = (dataInfo) => {
   dataInfo?.overview?.forEach((item, idx) => {
     if (idx === 4) {
       dataScraper.push({
-        id: 4,
+        id: 9,
         title: "Capitalization",
         value: removeUnit(item?.value || ""),
       });
     } else if (idx === 6) {
       dataScraper.push({
-        id: 3,
+        id: 8,
         title: "Liquidity (Avg.10d)",
         value: removeUnit(item?.value || ""),
       });
@@ -33,19 +33,19 @@ const processingData = (dataInfo) => {
   dataInfo?.financeOne?.forEach((item, idx) => {
     if (idx === 1) {
       dataScraper.push({
-        id: 11,
+        id: 16,
         title: "EPS",
         value: item?.value || "",
       });
     } else if (idx === 2) {
       dataScraper.push({
-        id: 9,
+        id: 14,
         title: "P/E",
         value: item?.value || "",
       });
     } else if (idx === 6) {
       dataScraper.push({
-        id: 10,
+        id: 15,
         title: "P/B",
         value: item?.value || "",
       });
@@ -55,32 +55,70 @@ const processingData = (dataInfo) => {
   dataInfo?.financeTwo?.forEach((item, idx) => {
     if (idx === 0) {
       dataScraper.push({
-        id: 5,
+        id: 10,
         title: "Quick Ratio",
         value: item?.value || "",
       });
     } else if (idx === 1) {
       dataScraper.push({
-        id: 6,
+        id: 11,
         title: "Current Ratio",
         value: item?.value || "",
       });
     } else if (idx === 2) {
       dataScraper.push({
-        id: 7,
+        id: 12,
         title: "D/E",
         value: item?.value || "",
       });
     } else if (idx === 3) {
       dataScraper.push({
-        id: 8,
+        id: 13,
         title: "Debt ratio (DTI)",
         value: item?.value || "",
       });
     }
   });
 
+  // Push data empty
+  dataScraper.push({
+    id: 2,
+    title: "% decrease",
+    value: "",
+  });
+  dataScraper.push({
+    id: 3,
+    title: "Price3",
+    value: "",
+  });
+  dataScraper.push({
+    id: 4,
+    title: "Price2",
+    value: "",
+  });
+  dataScraper.push({
+    id: 5,
+    title: "Price1",
+    value: "",
+  });
+  dataScraper.push({
+    id: 6,
+    title: "Exchange",
+    value: "",
+  });
+  dataScraper.push({
+    id: 7,
+    title: "VN30/HNX30",
+    value: "",
+  });
+
+  // Sort
   const dataSort = dataScraper.sort((a, b) => a.id - b.id);
+
+  // Remove id
+  dataSort.forEach((item) => {
+    delete item.id;
+  });
 
   return dataSort;
 };

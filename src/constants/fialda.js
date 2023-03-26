@@ -3,8 +3,8 @@ const SCRAPER_TYPE_FIALDA = {
 };
 
 const SCRAPER_LIST_ITEM_ELECTRICAL = [
-  "bcg",
-  "geg",
+  // "bcg",
+  // "geg",
   // "hdg",
   // "pc1",
   // "ree",
@@ -20,7 +20,7 @@ const SCRAPER_LIST_ITEM_ELECTRICAL = [
   // "tbc",
   // "tmp",
   // "vsh",
-  // "gex",
+  "gex",
 ];
 
 const TYPE_DATE = {
