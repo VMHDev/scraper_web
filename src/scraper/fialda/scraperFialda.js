@@ -1,4 +1,4 @@
-const scraperOverview = (browser, url) =>
+const scraperFialda = (browser, url) =>
   new Promise(async (resolve, reject) => {
     try {
       let pageInfo = await browser.newPage();
@@ -87,4 +87,4 @@ const scraperOverview = (browser, url) =>
     }
   });
 
-module.exports = scraperOverview;
+module.exports = scraperFialda;

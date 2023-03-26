@@ -1,9 +1,9 @@
 const fs = require("fs");
 const converter = require("json-2-csv");
 const startBrowser = require("./../../configs/browser");
-const scraperOverview = require("./scraperOverview");
+const scraperFialda = require("./scraperFialda");
+const processingData = require("./processingData");
 const { SCRAPER_LIST_PAGE } = require("./../../constants/fialdaElectrical");
-const { removeUnit, processDate } = require("./../../utils/batdongsan/commons");
 
 const scraperController = async () => {
   try {
@@ -13,39 +13,12 @@ const scraperController = async () => {
       let browser = await startBrowser();
 
       // Scraper
-      let dataInfo = await scraperOverview(browser, item.urlSite);
-
+      let dataInfo = await scraperFialda(browser, item.urlSite);
       console.log("dataInfo", dataInfo);
-      // Processing data
-      // const dataScraper = [];
-      // dataOverview.forEach((item, idx) => {
-      //   if (idx === 4 || idx === 6) {
-      //     dataScraper.push(item);
-      //   }
-      //   if (idx === 7) {
-      //     const arrPrice = item.split(" - ");
-      //     dataScraper.push({
-      //       id: dataScraper.length,
-      //       title: "PRICE 52W MIN",
-      //       value: arrPrice[0],
-      //     });
-      //     dataScraper.push({
-      //       id: dataScraper.length,
-      //       title: "PRICE 52W MAX",
-      //       value: arrPrice[0],
-      //     });
-      //   }
-      // });
 
-      // dataOverview.forEach((item, idx) => {
-      //   if (idx === 1 || idx === 2 || idx === 6) {
-      //     dataScraper.push({
-      //       id: dataScraper.length,
-      //       title: "PRICE 52W MIN",
-      //       value: arrPrice[0],
-      //     });
-      //   }
-      // });
+      // Processing data
+      const dataScraper = processingData(dataInfo);
+      console.log("dataScraper", dataScraper);
 
       // Write file json
       // fs.writeFileSync(item.pathJson, JSON.stringify(info), (err) => {
