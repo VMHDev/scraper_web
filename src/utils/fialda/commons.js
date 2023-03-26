@@ -8,9 +8,10 @@ const getListScraperFialda = (type) => {
     case SCRAPER_TYPE_FIALDA.ELECTRICAL:
       return SCRAPER_LIST_ITEM_ELECTRICAL.map((item) => {
         return {
+          id: item,
           urlSite: `https://fwt.fialda.com/co-phieu/${item.toUpperCase()}/taichinh`,
-          pathJson: `src/data/fialda-electrical-${item}.json`,
-          pathCSV: `src/data/fialda-electrical-${item}.csv`,
+          pathJson: `src/data/fialda-${SCRAPER_TYPE_FIALDA.ELECTRICAL}-${item}.json`,
+          pathCSV: `src/data/fialda-${SCRAPER_TYPE_FIALDA.ELECTRICAL}-${item}.csv`,
         };
       });
     default:
@@ -18,4 +19,13 @@ const getListScraperFialda = (type) => {
   }
 };
 
-module.exports = { getListScraperFialda };
+const getURLExportCSV = (type) => {
+  switch (type) {
+    case SCRAPER_TYPE_FIALDA.ELECTRICAL:
+      return `src/data/fialda-${SCRAPER_TYPE_FIALDA.ELECTRICAL}.csv`;
+    default:
+      break;
+  }
+};
+
+module.exports = { getListScraperFialda, getURLExportCSV };
