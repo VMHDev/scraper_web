@@ -8,8 +8,9 @@ const scraperOverview = (browser, url) =>
       await pageInfo.waitForSelector("table.table-striped");
       console.log(">> Page load done...");
 
-      const dataScraper = [];
+      let dataScraper = {};
 
+      //////////////////////////////////////////////////////////
       const dataOverview = await pageInfo.$$eval(
         "div[id^='top-'] > div.card-body > div.info-cp > div:nth-child(2) > div.grid-cp > div.grid-cp-item",
         (els) => {
@@ -39,31 +40,25 @@ const scraperOverview = (browser, url) =>
           return tmpDataOverview;
         }
       );
+      dataScraper.overview = dataOverview;
 
-      console.log("dataOverview", dataOverview);
-
-      dataOverview.forEach((item, idx) => {});
-
-      //
+      //////////////////////////////////////////////////////////
       const dataFinanceOne = await pageInfo.$$eval(
         "div[data-tab~='chính'] > div.card-body > div > div.m-px-15 > div.col-md-4 > div:nth-child(4) > table > tbody > tr",
         (els) => {
           let tmpDataFinanceOne = els.map((el, idx) => {
-            if (idx === 1 || idx === 2 || idx === 6) {
-              return {
-                id: idx,
-                title: el.querySelector("td:nth-child(1)")?.innerText || "",
-                value: el.querySelector("td:nth-child(2)")?.innerText || "",
-              };
-            }
+            return {
+              id: idx,
+              title: el.querySelector("td:nth-child(1)")?.innerText || "",
+              value: el.querySelector("td:nth-child(2)")?.innerText || "",
+            };
           });
           return tmpDataFinanceOne;
         }
       );
+      dataScraper.financeOne = dataFinanceOne;
 
-      console.log("dataFinanceOne", dataFinanceOne);
-
-      //
+      //////////////////////////////////////////////////////////
       const dataFinanceTwo = await pageInfo.$$eval(
         "div[data-tab~='chính'] > div.card-body > div > div.m-px-15 > div.col-md-4 > div:nth-child(5) > table > tbody > tr",
         (els) => {
@@ -77,14 +72,13 @@ const scraperOverview = (browser, url) =>
           return tmpDataFinanceTwo;
         }
       );
-
-      console.log("dataFinanceTwo", dataFinanceTwo);
+      dataScraper.financeTwo = dataFinanceTwo;
 
       await pageInfo.waitForTimeout(1 * 1000);
       await pageInfo.close();
       console.log(">> Tab đã đóng...");
 
-      resolve(dataOverview);
+      resolve(dataScraper);
     } catch (error) {
       console.log("Controller failed: " + error);
       await pageInfo.close();

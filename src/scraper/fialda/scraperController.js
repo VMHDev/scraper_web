@@ -13,7 +13,39 @@ const scraperController = async () => {
       let browser = await startBrowser();
 
       // Scraper
-      let info = await scraperOverview(browser, item.urlSite);
+      let dataInfo = await scraperOverview(browser, item.urlSite);
+
+      console.log("dataInfo", dataInfo);
+      // Processing data
+      // const dataScraper = [];
+      // dataOverview.forEach((item, idx) => {
+      //   if (idx === 4 || idx === 6) {
+      //     dataScraper.push(item);
+      //   }
+      //   if (idx === 7) {
+      //     const arrPrice = item.split(" - ");
+      //     dataScraper.push({
+      //       id: dataScraper.length,
+      //       title: "PRICE 52W MIN",
+      //       value: arrPrice[0],
+      //     });
+      //     dataScraper.push({
+      //       id: dataScraper.length,
+      //       title: "PRICE 52W MAX",
+      //       value: arrPrice[0],
+      //     });
+      //   }
+      // });
+
+      // dataOverview.forEach((item, idx) => {
+      //   if (idx === 1 || idx === 2 || idx === 6) {
+      //     dataScraper.push({
+      //       id: dataScraper.length,
+      //       title: "PRICE 52W MIN",
+      //       value: arrPrice[0],
+      //     });
+      //   }
+      // });
 
       // Write file json
       // fs.writeFileSync(item.pathJson, JSON.stringify(info), (err) => {
