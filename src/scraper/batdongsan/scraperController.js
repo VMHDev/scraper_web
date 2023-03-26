@@ -3,7 +3,8 @@ const converter = require("json-2-csv");
 const startBrowser = require("./../../configs/browser");
 const scraperPrice = require("./scraperPrice");
 const { SCRAPER_LIST_PAGE } = require("./../../constants/batdongsan");
-const { removeUnit, processDate } = require("./../../utils/batdongsan/commons");
+const { removeUnit } = require("./../../utils/commons");
+const { processDate } = require("./../../utils/batdongsan/commons");
 
 const scraperController = async () => {
   try {

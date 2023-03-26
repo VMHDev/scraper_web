@@ -3,44 +3,37 @@ const converter = require("json-2-csv");
 const startBrowser = require("./../../configs/browser");
 const scraperFialda = require("./scraperFialda");
 const processingData = require("./processingData");
-const { SCRAPER_LIST_PAGE } = require("./../../constants/fialdaElectrical");
+const { SCRAPER_TYPE_FIALDA } = require("./../../constants/fialda");
+const { getListScraperFialda } = require("./../../utils/fialda/commons");
 
 const scraperController = async () => {
   try {
-    // Scraper price batdongsan.com.vn
-    for (const item of SCRAPER_LIST_PAGE) {
+    const lstPageScraper = getListScraperFialda(SCRAPER_TYPE_FIALDA.ELECTRICAL);
+    // Scraper price fialda
+    for (const item of lstPageScraper) {
       // Open browser
       let browser = await startBrowser();
 
       // Scraper
-      let dataInfo = await scraperFialda(browser, item.urlSite);
+      const dataInfo = await scraperFialda(browser, item.urlSite);
       console.log("dataInfo", dataInfo);
+
+      // Write file json
+      fs.writeFileSync(item.pathJson, JSON.stringify(dataInfo), (err) => {
+        if (err) console.log("Write data failed: " + err);
+        console.log("Write success");
+      });
 
       // Processing data
       const dataScraper = processingData(dataInfo);
       console.log("dataScraper", dataScraper);
 
-      // Write file json
-      // fs.writeFileSync(item.pathJson, JSON.stringify(info), (err) => {
-      //   if (err) console.log("Write data failed: " + err);
-      //   console.log("Write success");
-      // });
-
       // Write file csv
-      // const dataCSV = info.map((item) => {
-      //   return {
-      //     price: removeUnit(item?.price),
-      //     area: removeUnit(item?.area),
-      //     pricePerM2: removeUnit(item?.pricePerM2),
-      //     date: processDate(item?.date),
-      //   };
-      // });
-
-      // const csvResult = await converter.json2csv(dataCSV);
-      // fs.writeFileSync(item.pathCSV, csvResult, (err) => {
-      //   if (err) console.log("Write data failed: " + err);
-      //   console.log("Write success");
-      // });
+      const csvResult = await converter.json2csv(dataScraper);
+      fs.writeFileSync(item.pathCSV, csvResult, (err) => {
+        if (err) console.log("Write data failed: " + err);
+        console.log("Write success");
+      });
 
       // Close browser
       await browser.close();

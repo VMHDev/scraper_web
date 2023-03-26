@@ -1,14 +1,6 @@
 const moment = require("moment");
 const { TYPE_DATE } = require("./../../constants/batdongsan");
 
-const removeUnit = (price) => {
-  if (price) {
-    return price.replace(/[^0-9\.]+/g, "");
-  } else {
-    return "";
-  }
-};
-
 const processDate = (date) => {
   switch (date) {
     case TYPE_DATE.TODAY:
@@ -26,4 +18,4 @@ const processDate = (date) => {
   }
 };
 
-module.exports = { removeUnit, processDate };
+module.exports = { processDate };

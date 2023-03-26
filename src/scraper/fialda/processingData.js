@@ -1,4 +1,4 @@
-const { removeUnit } = require("./../../utils/batdongsan/commons");
+const { removeUnit } = require("./../../utils/commons");
 
 const processingData = (dataInfo) => {
   const dataScraper = [];
@@ -25,7 +25,7 @@ const processingData = (dataInfo) => {
       dataScraper.push({
         id: 1,
         title: "Price 52W Max",
-        value: arrPrice[0],
+        value: arrPrice[1],
       });
     }
   });
