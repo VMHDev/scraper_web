@@ -1,6 +1,6 @@
 const { TYPE_SCRAPER } = require("./src/constants/commons");
 const scraperBatDongSan = require("./src/scraper/batdongsan/scraperController");
-const scraperFialda = require("./src/scraper/fialda/scraperControllerV2");
+const scraperFialda = require("./src/scraper/fialda/scraperController");
 
 let typeScraper = TYPE_SCRAPER.FIALDA;
 

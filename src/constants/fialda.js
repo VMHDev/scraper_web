@@ -7,7 +7,7 @@ const SCRAPER_LIST_ITEM_ELECTRICAL = [
   // "geg",
   // "hdg",
   // "pc1",
-  // "ree",
+  "ree",
   // "tta",
   // "hnd",
   // "nt2",
@@ -18,9 +18,9 @@ const SCRAPER_LIST_ITEM_ELECTRICAL = [
   // "chp",
   // "hna",
   // "tbc",
-  //"tmp",
+  // "tmp",
   // "vsh",
-  "gex",
+  // "gex",
 ];
 
 module.exports = {

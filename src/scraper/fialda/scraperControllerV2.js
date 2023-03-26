@@ -30,6 +30,7 @@ const scraperController = async () => {
 
       dataSummary = dataScraper.map((itemScraper, idx) => {
         return {
+          title: itemScraper.title,
           ...dataSummary[idx],
           [itemPage?.symbolStock]: itemScraper.value,
         };
@@ -43,12 +44,12 @@ const scraperController = async () => {
     console.log("dataSummary", dataSummary);
 
     // Write file csv
-    // const urlExportCSV = getURLExportCSV(type);
-    // const csvResult = await converter.json2csv(dataSummary);
-    // fs.writeFileSync(urlExportCSV, csvResult, (err) => {
-    //   if (err) console.log("Write data failed: " + err);
-    //   console.log("Write success");
-    // });
+    const urlExportCSV = getURLExportCSV(type);
+    const csvResult = await converter.json2csv(dataSummary);
+    fs.writeFileSync(urlExportCSV, csvResult, (err) => {
+      if (err) console.log("Write data failed: " + err);
+      console.log("Write success");
+    });
   } catch (error) {
     console.log("Controller failed: " + error);
   }
