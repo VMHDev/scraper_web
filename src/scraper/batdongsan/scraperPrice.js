@@ -1,4 +1,4 @@
-const scrapeCategory = (browser, url) =>
+const scraperPrice = (browser, url) =>
   new Promise(async (resolve, reject) => {
     try {
       let pageInfo = await browser.newPage();
@@ -34,7 +34,7 @@ const scrapeCategory = (browser, url) =>
         }
       );
 
-      // await pageInfo.waitForTimeout(5 * 1000);
+      await pageInfo.waitForTimeout(2 * 1000);
       await pageInfo.close();
       console.log(">> Tab đã đóng...");
       resolve(dataItem);
@@ -46,4 +46,4 @@ const scrapeCategory = (browser, url) =>
     }
   });
 
-module.exports = scrapeCategory;
+module.exports = scraperPrice;
