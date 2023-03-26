@@ -11,6 +11,13 @@ const scraperFialda = (browser, url) =>
       let dataScraper = {};
 
       //////////////////////////////////////////////////////////
+      const dataIntro = await pageInfo.$eval(
+        "div.card-header > div.list-quick-menu > div.scroll-bar-cus > div:nth-child(1) > ul.style-no2 > li.nav-item",
+        (el) => el.querySelector("a").innerText
+      );
+      dataScraper.intro = dataIntro;
+
+      //////////////////////////////////////////////////////////
       const dataOverview = await pageInfo.$$eval(
         "div[id^='top-'] > div.card-body > div.info-cp > div:nth-child(2) > div.grid-cp > div.grid-cp-item",
         (els) => {

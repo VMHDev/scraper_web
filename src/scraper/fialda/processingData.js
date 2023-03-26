@@ -2,6 +2,15 @@ const { removeUnit } = require("./../../utils/commons");
 
 const processingData = (dataInfo) => {
   const dataScraper = [];
+  /////////////////////////////////////////////////
+  const arrIntro = dataInfo?.intro.split(":");
+  dataScraper.push({
+    id: 6,
+    title: "Exchange",
+    value: arrIntro[1],
+  });
+
+  /////////////////////////////////////////////////
   dataInfo?.overview?.forEach((item, idx) => {
     if (idx === 4) {
       dataScraper.push({
@@ -79,6 +88,7 @@ const processingData = (dataInfo) => {
       });
     }
   });
+  /////////////////////////////////////////////////
 
   // Push data empty
   dataScraper.push({
@@ -102,18 +112,15 @@ const processingData = (dataInfo) => {
     value: "",
   });
   dataScraper.push({
-    id: 6,
-    title: "Exchange",
-    value: "",
-  });
-  dataScraper.push({
     id: 7,
     title: "VN30/HNX30",
     value: "",
   });
+  /////////////////////////////////////////////////
 
   // Sort
   const dataSort = dataScraper.sort((a, b) => a.id - b.id);
+  /////////////////////////////////////////////////
 
   // Remove id
   dataSort.forEach((item) => {

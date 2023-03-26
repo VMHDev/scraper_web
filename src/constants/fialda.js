@@ -19,7 +19,7 @@ const SCRAPER_LIST_ITEM_ELECTRICAL = [
   // "hna",
   // "tbc",
   //"tmp",
-  "vsh",
+  // "vsh",
   "gex",
 ];
 

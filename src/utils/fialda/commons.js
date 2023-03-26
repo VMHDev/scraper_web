@@ -8,7 +8,7 @@ const getListScraperFialda = (type) => {
     case SCRAPER_TYPE_FIALDA.ELECTRICAL:
       return SCRAPER_LIST_ITEM_ELECTRICAL.map((item) => {
         return {
-          id: item,
+          symbolStock: item,
           urlSite: `https://fwt.fialda.com/co-phieu/${item.toUpperCase()}/taichinh`,
           pathJson: `src/data/fialda-${SCRAPER_TYPE_FIALDA.ELECTRICAL}-${item}.json`,
           pathCSV: `src/data/fialda-${SCRAPER_TYPE_FIALDA.ELECTRICAL}-${item}.csv`,
