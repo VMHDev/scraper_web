@@ -5,7 +5,7 @@ const processingData = (dataInfo) => {
   /////////////////////////////////////////////////
   const arrIntro = dataInfo?.intro.split(":");
   dataScraper.push({
-    id: 6,
+    id: 0,
     title: "Exchange",
     value: arrIntro[1],
   });
@@ -14,25 +14,25 @@ const processingData = (dataInfo) => {
   dataInfo?.overview?.forEach((item, idx) => {
     if (idx === 4) {
       dataScraper.push({
-        id: 9,
+        id: 8,
         title: "Capitalization",
         value: removeUnit(item?.value || ""),
       });
     } else if (idx === 6) {
       dataScraper.push({
-        id: 8,
+        id: 7,
         title: "Liquidity (Avg.10d)",
         value: removeUnit(item?.value || ""),
       });
     } else if (idx === 7) {
       const arrPrice = item?.value.split(" - ");
       dataScraper.push({
-        id: 0,
+        id: 2,
         title: "Price 52W Min",
         value: arrPrice[0],
       });
       dataScraper.push({
-        id: 1,
+        id: 3,
         title: "Price 52W Max",
         value: arrPrice[1],
       });
@@ -42,19 +42,19 @@ const processingData = (dataInfo) => {
   dataInfo?.financeOne?.forEach((item, idx) => {
     if (idx === 1) {
       dataScraper.push({
-        id: 16,
+        id: 15,
         title: "EPS",
         value: item?.value || "",
       });
     } else if (idx === 2) {
       dataScraper.push({
-        id: 14,
+        id: 13,
         title: "P/E",
         value: item?.value || "",
       });
     } else if (idx === 6) {
       dataScraper.push({
-        id: 15,
+        id: 14,
         title: "P/B",
         value: item?.value || "",
       });
@@ -64,25 +64,25 @@ const processingData = (dataInfo) => {
   dataInfo?.financeTwo?.forEach((item, idx) => {
     if (idx === 0) {
       dataScraper.push({
-        id: 10,
+        id: 9,
         title: "Quick Ratio",
         value: item?.value || "",
       });
     } else if (idx === 1) {
       dataScraper.push({
-        id: 11,
+        id: 10,
         title: "Current Ratio",
         value: item?.value || "",
       });
     } else if (idx === 2) {
       dataScraper.push({
-        id: 12,
+        id: 11,
         title: "D/E",
         value: item?.value || "",
       });
     } else if (idx === 3) {
       dataScraper.push({
-        id: 13,
+        id: 12,
         title: "Debt ratio (DTI)",
         value: item?.value || "",
       });
@@ -92,27 +92,22 @@ const processingData = (dataInfo) => {
 
   // Push data empty
   dataScraper.push({
-    id: 2,
-    title: "% decrease",
-    value: "",
-  });
-  dataScraper.push({
-    id: 3,
-    title: "Price3",
+    id: 1,
+    title: "Price 5Y Min",
     value: "",
   });
   dataScraper.push({
     id: 4,
-    title: "Price2",
+    title: "% decrease",
     value: "",
   });
   dataScraper.push({
     id: 5,
-    title: "Price1",
+    title: "Price",
     value: "",
   });
   dataScraper.push({
-    id: 7,
+    id: 6,
     title: "VN30/HNX30",
     value: "",
   });

@@ -8,7 +8,9 @@ const { getListScraperFialda } = require("./../../utils/fialda/commons");
 
 const scraperController = async () => {
   try {
-    const lstPageScraper = getListScraperFialda(SCRAPER_TYPE_FIALDA.ELECTRICAL);
+    const lstPageScraper = getListScraperFialda(
+      SCRAPER_TYPE_FIALDA.AGRICULTURE
+    );
     // Scraper price fialda
     for (const itemPage of lstPageScraper) {
       // Open browser
