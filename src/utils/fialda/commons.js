@@ -9,6 +9,7 @@ const {
   SCRAPER_LIST_ITEM_REALESTATE,
   SCRAPER_LIST_ITEM_COMMERCE,
   SCRAPER_LIST_ITEM_FINANCE,
+  SCRAPER_LIST_ITEM_OTHES,
 } = require("../../constants/fialda");
 
 const getListScraperFialda = (type) => {
@@ -95,6 +96,14 @@ const getListScraperFialda = (type) => {
         };
       });
     default:
+      return SCRAPER_LIST_ITEM_OTHES.map((item) => {
+        return {
+          symbolStock: item,
+          urlSite: `https://fwt.fialda.com/co-phieu/${item.toUpperCase()}/taichinh`,
+          pathJson: `src/data/fialda-${SCRAPER_TYPE_FIALDA.OTHERS}-${item}.json`,
+          pathCSV: `src/data/fialda-${SCRAPER_TYPE_FIALDA.OTHERS}-${item}.csv`,
+        };
+      });
       break;
   }
 };
@@ -118,6 +127,7 @@ const getURLExportCSV = (type) => {
     case SCRAPER_TYPE_FIALDA.FINANCE:
       return `src/data/fialda-${SCRAPER_TYPE_FIALDA.FINANCE}.csv`;
     default:
+      return `src/data/fialda-${SCRAPER_TYPE_FIALDA.OTHERS}.csv`;
       break;
   }
 };

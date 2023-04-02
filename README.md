@@ -19,5 +19,7 @@
   - Export one stock per file use scraperController
   - Export multiple stock one file use scraperControllerV2
 - scraperControllerV2
+  - In src/scraper/fialda/scraperControllerV2.js
+    - Set type = SCRAPER_TYPE_FIALDA.PETROL
   - In src/constants/fialda.js
-  - Add item in SCRAPER_LIST_ITEM_ELECTRICAL
+    - Add item in SCRAPER_LIST_ITEM_PETROL

@@ -4,10 +4,11 @@ const SCRAPER_TYPE_FIALDA = {
   ELECTRICAL: "electrical",
   AGRICULTURE: "agriculture",
   PETROL: "petrol",
-  EXPORT: "Export",
-  REALESTATE: "RealEstate",
-  COMMERCE: "Commerce",
-  FINANCE: "Finance",
+  EXPORT: "export",
+  REALESTATE: "realestate",
+  COMMERCE: "commerce",
+  FINANCE: "finance",
+  OTHERS: "others",
 };
 
 const SCRAPER_LIST_ITEM_INVESTED = [
@@ -21,7 +22,20 @@ const SCRAPER_LIST_ITEM_INVESTED = [
   "pow",
 ];
 
-const SCRAPER_LIST_ITEM_LOGISTIC = ["pan"];
+const SCRAPER_LIST_ITEM_LOGISTIC = [
+  "ACV",
+  "DVP",
+  "GMD",
+  "HAH",
+  "HVN",
+  "PVT",
+  "SCS",
+  "STG",
+  "TMS",
+  "VJC",
+  "VOS",
+  "VSC",
+];
 
 const SCRAPER_LIST_ITEM_ELECTRICAL = [
   // "bcg",
@@ -56,15 +70,36 @@ const SCRAPER_LIST_ITEM_AGRICULTURE = [
   "kdc",
 ];
 
-const SCRAPER_LIST_ITEM_PETROL = ["pan"];
+const SCRAPER_LIST_ITEM_PETROL = ["POW", "PLX", "PLC", "BSR"];
 
-const SCRAPER_LIST_ITEM_EXPORT = ["pan"];
+const SCRAPER_LIST_ITEM_EXPORT = ["GIL", "ANV", "ASM", "IDI", "VHC"];
 
-const SCRAPER_LIST_ITEM_REALESTATE = ["pan"];
+const SCRAPER_LIST_ITEM_REALESTATE = [
+  "HPG",
+  "PTB",
+  "KSB",
+  "BCC",
+  "CTD",
+  "HTN",
+  "HBC",
+  "VCG",
+  "DXG",
+  "KDH",
+  "NLG",
+  "NVL",
+  "PDR",
+  "VHM",
+  "VIC",
+  "IDC",
+  "BCM",
+  "VGC",
+];
 
-const SCRAPER_LIST_ITEM_COMMERCE = ["pan"];
+const SCRAPER_LIST_ITEM_COMMERCE = ["DGW", "MSN", "MWG", "FRT"];
 
-const SCRAPER_LIST_ITEM_FINANCE = ["pan"];
+const SCRAPER_LIST_ITEM_FINANCE = ["SSI", "VND", "HCM", "MBS", "MIG"];
+
+const SCRAPER_LIST_ITEM_OTHES = ["FIT", "FPT"];
 
 module.exports = {
   SCRAPER_TYPE_FIALDA,
@@ -77,4 +112,5 @@ module.exports = {
   SCRAPER_LIST_ITEM_REALESTATE,
   SCRAPER_LIST_ITEM_COMMERCE,
   SCRAPER_LIST_ITEM_FINANCE,
+  SCRAPER_LIST_ITEM_OTHES,
 };
