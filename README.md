@@ -21,5 +21,5 @@
 - scraperControllerV2
   - In src/scraper/fialda/scraperControllerV2.js
     - Set type = SCRAPER_TYPE_FIALDA.PETROL
-  - In src/constants/fialda.js
+  - In src/constants/stocks.js
     - Add item in SCRAPER_LIST_ITEM_PETROL

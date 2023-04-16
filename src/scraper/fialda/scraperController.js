@@ -3,13 +3,13 @@ const converter = require("json-2-csv");
 const startBrowser = require("./../../configs/browser");
 const scraperFialda = require("./scraperFialda");
 const processingData = require("./processingData");
-const { SCRAPER_TYPE_FIALDA } = require("./../../constants/fialda");
+const { SCRAPER_TYPE_STOCKS } = require("./../../constants/stocks");
 const { getListScraperFialda } = require("./../../utils/fialda/commons");
 
 const scraperController = async () => {
   try {
     const lstPageScraper = getListScraperFialda(
-      SCRAPER_TYPE_FIALDA.AGRICULTURE
+      SCRAPER_TYPE_STOCKS.AGRICULTURE
     );
     // Scraper price fialda
     for (const itemPage of lstPageScraper) {

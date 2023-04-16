@@ -1,7 +1,7 @@
 const fs = require("fs");
 const converter = require("json-2-csv");
 const startBrowser = require("../../configs/browser");
-const scraperFialda = require("./scraperFialda");
+const scraperFialda = require("./scraperVietStock");
 const processingData = require("./processingData");
 const { SCRAPER_TYPE_STOCKS } = require("../../constants/stocks");
 const {
@@ -9,7 +9,7 @@ const {
   getURLExportCSV,
 } = require("../../utils/fialda/commons");
 
-const type = SCRAPER_TYPE_STOCKS.ELECTRICAL;
+const type = SCRAPER_TYPE_STOCKS.OTHERS;
 
 const scraperController = async () => {
   try {
