@@ -1,85 +1,48 @@
-const scraperFialda = (browser, url) =>
+const scraperVietstock = (browser, url) =>
   new Promise(async (resolve, reject) => {
     try {
       let pageInfo = await browser.newPage();
       console.log(">> Open new page ...");
       await pageInfo.goto(url);
       console.log(">> Accessing " + url);
-      await pageInfo.waitForSelector("table.table-striped");
+      await pageInfo.waitForSelector("#order-chart-index");
       console.log(">> Page load done...");
 
       let dataScraper = {};
 
       //////////////////////////////////////////////////////////
-      const dataIntro = await pageInfo.$eval(
-        "div.card-header > div.list-quick-menu > div.scroll-bar-cus > div:nth-child(1) > ul.style-no2 > li.nav-item",
-        (el) => el.querySelector("a").innerText
-      );
-      dataScraper.intro = dataIntro;
-
-      //////////////////////////////////////////////////////////
-      const dataOverview = await pageInfo.$$eval(
-        "div[id^='top-'] > div.card-body > div.info-cp > div:nth-child(2) > div.grid-cp > div.grid-cp-item",
+      const dataIndexStocks = await pageInfo.$$eval(
+        "#page-container > div.row.stock-row.p-b > div.col-xs-24.col-md-17.m-b-xs.stock-cell > div:nth-child(4) > small",
         (els) => {
-          let tmpDataOverview = els.map((el, idx) => {
-            if (idx === 3 || idx === 7) {
-              const tmpValueMin =
-                el.querySelector("div.progress-custom-panel > div:nth-child(2)")
-                  ?.innerText || "";
-              const tmpValueMax =
-                el.querySelector("div.progress-custom-panel > div:nth-child(3)")
-                  ?.innerText || "";
-              return {
-                id: idx,
-                title:
-                  el.querySelector("h6.widget-subheading")?.innerText || "",
-                value: `${tmpValueMin} - ${tmpValueMax}`,
-              };
-            } else {
-              return {
-                id: idx,
-                title:
-                  el.querySelector("h6.widget-subheading")?.innerText || "",
-                value: el.querySelector("div.fsize-4")?.innerText || "",
-              };
-            }
+          let tmpDataIndexStocks = els.map((el, idx) => {
+            return {
+              id: idx,
+              infoChecked: el.querySelector("i")?.className || "",
+              typeInfo: el.querySelector("a")?.innerText || "",
+            };
           });
-          return tmpDataOverview;
+          return tmpDataIndexStocks;
         }
       );
-      dataScraper.overview = dataOverview;
+      console.log("dataIntro", JSON.stringify(dataIndexStocks));
+      dataScraper.indexStocks = dataIndexStocks;
 
       //////////////////////////////////////////////////////////
-      const dataFinanceOne = await pageInfo.$$eval(
-        "div[data-tab~='chính'] > div.card-body > div > div.m-px-15 > div.col-md-4 > div:nth-child(4) > table > tbody > tr",
+      const dataProfileStocks = await pageInfo.$$eval(
+        "#niem-yet > table > tbody > tr",
         (els) => {
-          let tmpDataFinanceOne = els.map((el, idx) => {
+          let tmpDataProfileStocks = els.map((el, idx) => {
             return {
               id: idx,
               title: el.querySelector("td:nth-child(1)")?.innerText || "",
               value: el.querySelector("td:nth-child(2)")?.innerText || "",
             };
           });
-          return tmpDataFinanceOne;
+          return tmpDataProfileStocks;
         }
       );
-      dataScraper.financeOne = dataFinanceOne;
-
-      //////////////////////////////////////////////////////////
-      const dataFinanceTwo = await pageInfo.$$eval(
-        "div[data-tab~='chính'] > div.card-body > div > div.m-px-15 > div.col-md-4 > div:nth-child(5) > table > tbody > tr",
-        (els) => {
-          let tmpDataFinanceTwo = els.map((el, idx) => {
-            return {
-              id: idx,
-              title: el.querySelector("td:nth-child(1)")?.innerText || "",
-              value: el.querySelector("td:nth-child(2)")?.innerText || "",
-            };
-          });
-          return tmpDataFinanceTwo;
-        }
-      );
-      dataScraper.financeTwo = dataFinanceTwo;
+      console.log("dataIntro", JSON.stringify(dataProfileStocks));
+      dataScraper.profileStocks = dataProfileStocks;
 
       await pageInfo.waitForTimeout(1 * 1000);
       await pageInfo.close();
@@ -94,4 +57,4 @@ const scraperFialda = (browser, url) =>
     }
   });
 
-module.exports = scraperFialda;
+module.exports = scraperVietstock;
