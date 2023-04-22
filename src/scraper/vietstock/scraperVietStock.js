@@ -24,8 +24,21 @@ const scraperVietstock = (browser, url) =>
           return tmpDataIndexStocks;
         }
       );
-      console.log("dataIntro", JSON.stringify(dataIndexStocks));
+      console.log("dataIndexStocks", JSON.stringify(dataIndexStocks));
       dataScraper.indexStocks = dataIndexStocks;
+
+      //////////////////////////////////////////////////////////
+      const dataPriceStocks = await pageInfo.$eval(
+        "#page-container > div.row.stock-row.p-b > div.col-xs-24.col-md-17.m-b-xs.stock-cell > div.bt3.m-b > div > div.col-sm-5.col-md-6.text-center > div > div",
+        (el) => {
+          return {
+            infoWarnings: el.querySelector("small").innerText,
+            infoPrice: el.querySelector("#stockprice > span.price").innerText,
+          };
+        }
+      );
+      console.log("dataPriceStocks", JSON.stringify(dataPriceStocks));
+      dataScraper.priceStocks = dataPriceStocks;
 
       //////////////////////////////////////////////////////////
       const dataProfileStocks = await pageInfo.$$eval(
@@ -41,7 +54,7 @@ const scraperVietstock = (browser, url) =>
           return tmpDataProfileStocks;
         }
       );
-      console.log("dataIntro", JSON.stringify(dataProfileStocks));
+      console.log("dataProfileStocks", JSON.stringify(dataProfileStocks));
       dataScraper.profileStocks = dataProfileStocks;
 
       await pageInfo.waitForTimeout(1 * 1000);
