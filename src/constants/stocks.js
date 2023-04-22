@@ -1,6 +1,7 @@
 const SCRAPER_TYPE_STOCKS = {
   TEST: "test",
   INVESTED: "invested",
+  BANK: "bank",
   LOGISTIC: "logistic",
   ELECTRICAL: "electrical",
   AGRICULTURE: "agriculture",
@@ -23,6 +24,28 @@ const SCRAPER_LIST_ITEM_INVESTED = [
   "mbb",
   "mwg",
   "pow",
+];
+
+const SCRAPER_LIST_ITEM_BANK = [
+  // "abb",
+  // "acb",
+  // "bid",
+  // "bvb",
+  // "ctg",
+  // "eib",
+  // "hdb",
+  // "klb",
+  // "lpb",
+  // "mbb",
+  // "msb",
+  // "ocb",
+  // "shb",
+  // "stb",
+  "tcb",
+  "tpb",
+  "vcb",
+  "vib",
+  "vpb",
 ];
 
 const SCRAPER_LIST_ITEM_LOGISTIC = [
@@ -107,6 +130,7 @@ const SCRAPER_LIST_ITEM_OTHES = ["FIT", "FPT"];
 module.exports = {
   SCRAPER_TYPE_STOCKS,
   SCRAPER_LIST_ITEM_TEST,
+  SCRAPER_LIST_ITEM_BANK,
   SCRAPER_LIST_ITEM_INVESTED,
   SCRAPER_LIST_ITEM_LOGISTIC,
   SCRAPER_LIST_ITEM_ELECTRICAL,

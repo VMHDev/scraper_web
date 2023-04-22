@@ -2,6 +2,7 @@ const {
   SCRAPER_TYPE_STOCKS,
   SCRAPER_LIST_ITEM_TEST,
   SCRAPER_LIST_ITEM_INVESTED,
+  SCRAPER_LIST_ITEM_BANK,
   SCRAPER_LIST_ITEM_LOGISTIC,
   SCRAPER_LIST_ITEM_ELECTRICAL,
   SCRAPER_LIST_ITEM_AGRICULTURE,
@@ -31,6 +32,15 @@ const getListScraperVietstock = (type) => {
           urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
           pathJson: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.INVESTED}-${item}.json`,
           pathCSV: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.INVESTED}-${item}.csv`,
+        };
+      });
+    case SCRAPER_TYPE_STOCKS.BANK:
+      return SCRAPER_LIST_ITEM_BANK.map((item) => {
+        return {
+          symbolStock: item,
+          urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
+          pathJson: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.BANK}-${item}.json`,
+          pathCSV: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.BANK}-${item}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.LOGISTIC:
@@ -124,6 +134,8 @@ const getURLExportCSV = (type) => {
       return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.TEST}.csv`;
     case SCRAPER_TYPE_STOCKS.INVESTED:
       return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.INVESTED}.csv`;
+    case SCRAPER_TYPE_STOCKS.BANK:
+      return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.BANK}.csv`;
     case SCRAPER_TYPE_STOCKS.LOGISTIC:
       return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.LOGISTIC}.csv`;
     case SCRAPER_TYPE_STOCKS.AGRICULTURE:

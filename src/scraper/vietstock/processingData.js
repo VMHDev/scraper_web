@@ -1,6 +1,13 @@
 const { checkIndexIsChecked } = require("./../../utils/vietstock/commons");
 
 const TEXT_WARNINGS = "Đang bị cảnh báo";
+const LIST_INFO_GET = [
+  "VN30",
+  "HNX30",
+  "GD ký quỹ",
+  "FTSE Vietnam ETF",
+  "V.N.M ETF",
+];
 
 const processingData = (dataInfo) => {
   const dataScraper = [];
@@ -18,28 +25,27 @@ const processingData = (dataInfo) => {
 
   /////////////////////////////////////////////////
   dataInfo?.indexStocks?.forEach((item, idx) => {
-    const id = idx + 1;
     if (item.typeInfo === "HNX30" || item.typeInfo === "VN30") {
       dataScraper.push({
-        id: id,
+        id: 1,
         title: "VN30/HNX30",
         value: checkIndexIsChecked(item?.infoChecked || ""),
       });
     } else if (item.typeInfo === "GD ký quỹ") {
       dataScraper.push({
-        id: id,
+        id: 2,
         title: "Margin",
         value: checkIndexIsChecked(item?.infoChecked || ""),
       });
     } else if (item.typeInfo === "FTSE Vietnam ETF") {
       dataScraper.push({
-        id: id,
+        id: 3,
         title: "FTSE VN ETF",
         value: checkIndexIsChecked(item?.infoChecked || ""),
       });
     } else if (item.typeInfo === "V.N.M ETF") {
       dataScraper.push({
-        id: id,
+        id: 4,
         title: "VNM ETF",
         value: checkIndexIsChecked(item?.infoChecked || ""),
       });
@@ -52,6 +58,19 @@ const processingData = (dataInfo) => {
     title: "Warnings",
     value: dataInfo?.priceStocks?.infoWarnings === TEXT_WARNINGS ? "x" : "",
   });
+  /////////////////////////////////////////////////
+
+  const checkExistVNHNX = (obj) => obj.title === "VN30/HNX30";
+  const isExistVNHNX = dataScraper.some(checkExistVNHNX);
+  console.log("isExistVNHNX", isExistVNHNX);
+  if (!isExistVNHNX) {
+    dataScraper.push({
+      id: 1,
+      title: "VN30/HNX30",
+      value: "",
+    });
+  }
+
   /////////////////////////////////////////////////
 
   // Sort

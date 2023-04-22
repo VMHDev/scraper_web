@@ -1,5 +1,6 @@
 const scraperVietstock = (browser, url) =>
   new Promise(async (resolve, reject) => {
+    let dataScraper = {};
     try {
       let pageInfo = await browser.newPage();
       console.log(">> Open new page ...");
@@ -7,8 +8,6 @@ const scraperVietstock = (browser, url) =>
       console.log(">> Accessing " + url);
       await pageInfo.waitForSelector("#order-chart-index");
       console.log(">> Page load done...");
-
-      let dataScraper = {};
 
       //////////////////////////////////////////////////////////
       const dataIndexStocks = await pageInfo.$$eval(
@@ -66,6 +65,7 @@ const scraperVietstock = (browser, url) =>
       console.log("Controller failed: " + error);
       await pageInfo.close();
       console.log(">> Tab đã đóng...");
+      resolve(dataScraper);
       reject(error);
     }
   });

@@ -9,7 +9,7 @@ const {
   getURLExportCSV,
 } = require("../../utils/vietstock/commons");
 
-const type = SCRAPER_TYPE_STOCKS.TEST;
+const type = SCRAPER_TYPE_STOCKS.BANK;
 
 const scraperController = async () => {
   try {
@@ -17,28 +17,33 @@ const scraperController = async () => {
     // Scraper price fialda
     var dataSummary = [];
     for (const itemPage of lstPageScraper) {
-      // Open browser
-      let browser = await startBrowser();
+      try {
+        // Open browser
+        let browser = await startBrowser();
 
-      // Scraper
-      const dataInfo = await scraperVietstock(browser, itemPage.urlSite);
-      console.log("dataInfo", dataInfo);
+        // Scraper
+        const dataInfo = await scraperVietstock(browser, itemPage.urlSite);
+        console.log("dataInfo", dataInfo);
 
-      // Processing data
-      const dataScraper = processingData(dataInfo);
-      console.log("dataScraper", JSON.stringify(dataScraper));
+        // Processing data
+        const dataScraper = processingData(dataInfo);
+        console.log("dataScraper", JSON.stringify(dataScraper));
 
-      dataSummary = dataScraper.map((itemScraper, idx) => {
-        return {
-          title: itemScraper.title,
-          ...dataSummary[idx],
-          [itemPage?.symbolStock]: itemScraper.value,
-        };
-      });
+        dataSummary = dataScraper.map((itemScraper, idx) => {
+          return {
+            title: itemScraper.title,
+            ...dataSummary[idx],
+            [itemPage?.symbolStock]: itemScraper.value,
+          };
+        });
 
-      // Close browser
-      await browser.close();
-      console.log(">> Trình duyệt đã đóng...");
+        // Close browser
+        await browser.close();
+        console.log(">> Trình duyệt đã đóng...");
+      } catch (error) {
+        console.log("Scraper fail >>> ", itemPage?.symbolSto);
+        continue;
+      }
     }
 
     console.log("dataSummary", dataSummary);
