@@ -1,5 +1,6 @@
 const {
   SCRAPER_TYPE_STOCKS,
+  SCRAPER_LIST_ITEM_TEST,
   SCRAPER_LIST_ITEM_INVESTED,
   SCRAPER_LIST_ITEM_LOGISTIC,
   SCRAPER_LIST_ITEM_ELECTRICAL,
@@ -14,6 +15,15 @@ const {
 
 const getListScraperFialda = (type) => {
   switch (type) {
+    case SCRAPER_TYPE_STOCKS.TEST:
+      return SCRAPER_LIST_ITEM_TEST.map((item) => {
+        return {
+          symbolStock: item,
+          urlSite: `https://fwt.fialda.com/co-phieu/${item.toUpperCase()}/taichinh`,
+          pathJson: `src/data/fialda-${SCRAPER_TYPE_STOCKS.TEST}-${item}.json`,
+          pathCSV: `src/data/fialda-${SCRAPER_TYPE_STOCKS.TEST}-${item}.csv`,
+        };
+      });
     case SCRAPER_TYPE_STOCKS.INVESTED:
       return SCRAPER_LIST_ITEM_INVESTED.map((item) => {
         return {
@@ -110,6 +120,8 @@ const getListScraperFialda = (type) => {
 
 const getURLExportCSV = (type) => {
   switch (type) {
+    case SCRAPER_TYPE_STOCKS.TEST:
+      return `src/data/fialda-${SCRAPER_TYPE_STOCKS.TEST}.csv`;
     case SCRAPER_TYPE_STOCKS.INVESTED:
       return `src/data/fialda-${SCRAPER_TYPE_STOCKS.INVESTED}.csv`;
     case SCRAPER_TYPE_STOCKS.LOGISTIC:
