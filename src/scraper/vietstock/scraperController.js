@@ -9,7 +9,7 @@ const {
   getURLExportCSV,
 } = require("../../utils/vietstock/commons");
 
-const type = SCRAPER_TYPE_STOCKS.BANK;
+const type = SCRAPER_TYPE_STOCKS.OTHERS;
 
 const scraperController = async () => {
   try {

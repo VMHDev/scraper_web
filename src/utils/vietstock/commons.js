@@ -138,6 +138,8 @@ const getURLExportCSV = (type) => {
       return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.BANK}.csv`;
     case SCRAPER_TYPE_STOCKS.LOGISTIC:
       return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.LOGISTIC}.csv`;
+    case SCRAPER_TYPE_STOCKS.ELECTRICAL:
+      return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.ELECTRICAL}.csv`;
     case SCRAPER_TYPE_STOCKS.AGRICULTURE:
       return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.AGRICULTURE}.csv`;
     case SCRAPER_TYPE_STOCKS.PETROL:
