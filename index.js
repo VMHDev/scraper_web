@@ -3,7 +3,7 @@ const scraperBatDongSan = require("./src/scraper/batdongsan/scraperController");
 const scraperFialda = require("./src/scraper/fialda/scraperControllerV2");
 const scraperVietStock = require("./src/scraper/vietstock/scraperController");
 
-let typeScraper = TYPE_SCRAPER.VIETSTOCK;
+let typeScraper = TYPE_SCRAPER.BATDONGSAN;
 
 switch (typeScraper) {
   case TYPE_SCRAPER.BATDONGSAN:

@@ -13,6 +13,14 @@ const processDate = (date) => {
       return moment().subtract(3, "days").format("YYYY/MM/DD");
     case TYPE_DATE.DAY_FOUR:
       return moment().subtract(4, "days").format("YYYY/MM/DD");
+    case TYPE_DATE.DAY_FIVE:
+      return moment().subtract(5, "days").format("YYYY/MM/DD");
+    case TYPE_DATE.DAY_SIX:
+      return moment().subtract(6, "days").format("YYYY/MM/DD");
+    case TYPE_DATE.WEEK_ONE:
+      return moment().subtract(7, "days").format("YYYY/MM/DD");
+    case TYPE_DATE.WEEK_TWO:
+      return moment().subtract(14, "days").format("YYYY/MM/DD");
     default:
       return date;
   }
