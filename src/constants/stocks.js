@@ -55,6 +55,7 @@ const SCRAPER_LIST_ITEM_LOGISTIC = [
   "HAH",
   "HVN",
   "PVT",
+  "PVP",
   "SCS",
   "STG",
   "TMS",
@@ -85,33 +86,49 @@ const SCRAPER_LIST_ITEM_ELECTRICAL = [
 ];
 
 const SCRAPER_LIST_ITEM_AGRICULTURE = [
-  "BAF",
-  "DBC",
-  "HAG",
-  "MML",
-  "VLC",
-  "VSN",
-  "PAN",
-  "TAR",
-  "GVR",
-  "PHR",
-  "DCM",
-  "DPM",
-  "DGC",
-  "LAS",
-  "KDC",
+  // "BAF",
+  // "DBC",
+  // "HAG",
+  // "MML",
+  // "VLC",
+  // "VSN",
+  // "PAN",
+  // "TAR",
+  // "NSC",
+  // "LTG",
+  // "GVR",
+  // "PHR",
+  // "DCM",
+  // "DPM",
+  // "DGC",
+  // "LAS",
+  // "KDC",
+  // "SAB",
+  "VNM",
 ];
 
-const SCRAPER_LIST_ITEM_PETROL = ["POW", "PLX", "PLC", "BSR"];
+const SCRAPER_LIST_ITEM_PETROL = ["POW", "PLX", "PLC", "BSR", "PVD", "PVS"];
 
-const SCRAPER_LIST_ITEM_EXPORT = ["GIL", "ANV", "ASM", "IDI", "VHC"];
+const SCRAPER_LIST_ITEM_EXPORT = [
+  "GIL",
+  "ADS",
+  "VGT",
+  "TNG",
+  "ANV",
+  "ASM",
+  "IDI",
+  "VHC",
+];
 
 const SCRAPER_LIST_ITEM_REALESTATE = [
   // "HPG",
+  // "HSG",
+  // "NKG",
   // "PTB",
   // "ACG",
   // "KSB",
   // "BCC",
+  // "HT1",
   // "CTD",
   // "HTN",
   // "HBC",
@@ -122,34 +139,45 @@ const SCRAPER_LIST_ITEM_REALESTATE = [
   // "NVL",
   // "PDR",
   // "DIG",
-  "CEO",
-  "VPI",
-  "AGG",
-  "KHG",
-  "VHM",
-  "VIC",
-  "VRE",
-  "IDC",
-  "BCM",
-  "VGC",
-  "KBC",
-  "NTC",
-  "SNZ",
-  "VRG",
-  "D2D",
+  // "CEO",
+  // "VPI",
+  // "AGG",
+  // "KHG",
+  // "VHM",
+  // "VIC",
+  "NTL",
+  "CTR",
+  // "VRE",
+  // "IDC",
+  // "BCM",
+  // "VGC",
+  // "KBC",
+  // "NTC",
+  // "SNZ",
+  // "VRG",
+  // "D2D",
 ];
 
 const SCRAPER_LIST_ITEM_COMMERCE = ["DGW", "MSN", "MWG", "FRT"];
 
-const SCRAPER_LIST_ITEM_FINANCE = ["SSI", "VND", "HCM", "MBS", "MIG"];
+const SCRAPER_LIST_ITEM_FINANCE = [
+  "SSI",
+  "VND",
+  "HCM",
+  "MBS",
+  "VCI",
+  "ORS",
+  "MIG",
+];
 
-const SCRAPER_LIST_ITEM_OTHES = ["FIT", "FPT"];
+const SCRAPER_LIST_ITEM_OTHES = ["FIT", "FPT", "BWE", "TDM", "SLS", "QNS"];
 
 module.exports = {
   SCRAPER_TYPE_STOCKS,
   SCRAPER_LIST_ITEM_TEST,
-  SCRAPER_LIST_ITEM_BANK,
   SCRAPER_LIST_ITEM_INVESTED,
+  SCRAPER_LIST_ITEM_BANK,
+  SCRAPER_LIST_ITEM_FINANCE,
   SCRAPER_LIST_ITEM_LOGISTIC,
   SCRAPER_LIST_ITEM_ELECTRICAL,
   SCRAPER_LIST_ITEM_AGRICULTURE,
@@ -157,6 +185,5 @@ module.exports = {
   SCRAPER_LIST_ITEM_EXPORT,
   SCRAPER_LIST_ITEM_REALESTATE,
   SCRAPER_LIST_ITEM_COMMERCE,
-  SCRAPER_LIST_ITEM_FINANCE,
   SCRAPER_LIST_ITEM_OTHES,
 };

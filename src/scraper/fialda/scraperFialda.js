@@ -18,6 +18,13 @@ const scraperFialda = (browser, url) =>
       dataScraper.intro = dataIntro;
 
       //////////////////////////////////////////////////////////
+      const dataPrice = await pageInfo.$eval(
+        "div[id^='top-'] > div.card-body > div.info-cp > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
+        (el) => el.querySelector("span:nth-child(1)").innerText
+      );
+      dataScraper.price = dataPrice;
+
+      //////////////////////////////////////////////////////////
       const dataOverview = await pageInfo.$$eval(
         "div[id^='top-'] > div.card-body > div.info-cp > div:nth-child(2) > div.grid-cp > div.grid-cp-item",
         (els) => {

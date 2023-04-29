@@ -124,8 +124,12 @@ const getURLExportCSV = (type) => {
       return `src/data/fialda-${SCRAPER_TYPE_STOCKS.TEST}.csv`;
     case SCRAPER_TYPE_STOCKS.INVESTED:
       return `src/data/fialda-${SCRAPER_TYPE_STOCKS.INVESTED}.csv`;
+    case SCRAPER_TYPE_STOCKS.FINANCE:
+      return `src/data/fialda-${SCRAPER_TYPE_STOCKS.FINANCE}.csv`;
     case SCRAPER_TYPE_STOCKS.LOGISTIC:
       return `src/data/fialda-${SCRAPER_TYPE_STOCKS.LOGISTIC}.csv`;
+    case SCRAPER_TYPE_STOCKS.ELECTRICAL:
+      return `src/data/fialda-${SCRAPER_TYPE_STOCKS.ELECTRICAL}.csv`;
     case SCRAPER_TYPE_STOCKS.AGRICULTURE:
       return `src/data/fialda-${SCRAPER_TYPE_STOCKS.AGRICULTURE}.csv`;
     case SCRAPER_TYPE_STOCKS.PETROL:
@@ -136,8 +140,6 @@ const getURLExportCSV = (type) => {
       return `src/data/fialda-${SCRAPER_TYPE_STOCKS.REALESTATE}.csv`;
     case SCRAPER_TYPE_STOCKS.COMMERCE:
       return `src/data/fialda-${SCRAPER_TYPE_STOCKS.COMMERCE}.csv`;
-    case SCRAPER_TYPE_STOCKS.FINANCE:
-      return `src/data/fialda-${SCRAPER_TYPE_STOCKS.FINANCE}.csv`;
     default:
       return `src/data/fialda-${SCRAPER_TYPE_STOCKS.OTHERS}.csv`;
       break;
