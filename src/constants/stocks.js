@@ -40,6 +40,7 @@ const SCRAPER_LIST_ITEM_BANK = [
   "MSB",
   "OCB",
   "SHB",
+  "SSB",
   "STB",
   "TCB",
   "TPB",

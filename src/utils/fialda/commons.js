@@ -2,6 +2,8 @@ const {
   SCRAPER_TYPE_STOCKS,
   SCRAPER_LIST_ITEM_TEST,
   SCRAPER_LIST_ITEM_INVESTED,
+  SCRAPER_LIST_ITEM_BANK,
+  SCRAPER_LIST_ITEM_FINANCE,
   SCRAPER_LIST_ITEM_LOGISTIC,
   SCRAPER_LIST_ITEM_ELECTRICAL,
   SCRAPER_LIST_ITEM_AGRICULTURE,
@@ -9,7 +11,6 @@ const {
   SCRAPER_LIST_ITEM_EXPORT,
   SCRAPER_LIST_ITEM_REALESTATE,
   SCRAPER_LIST_ITEM_COMMERCE,
-  SCRAPER_LIST_ITEM_FINANCE,
   SCRAPER_LIST_ITEM_OTHES,
 } = require("../../constants/stocks");
 
@@ -31,6 +32,24 @@ const getListScraperFialda = (type) => {
           urlSite: `https://fwt.fialda.com/co-phieu/${item.toUpperCase()}/taichinh`,
           pathJson: `src/data/fialda-${SCRAPER_TYPE_STOCKS.INVESTED}-${item}.json`,
           pathCSV: `src/data/fialda-${SCRAPER_TYPE_STOCKS.INVESTED}-${item}.csv`,
+        };
+      });
+    case SCRAPER_TYPE_STOCKS.BANK:
+      return SCRAPER_LIST_ITEM_BANK.map((item) => {
+        return {
+          symbolStock: item,
+          urlSite: `https://fwt.fialda.com/co-phieu/${item.toUpperCase()}/taichinh`,
+          pathJson: `src/data/fialda-${SCRAPER_TYPE_STOCKS.BANK}-${item}.json`,
+          pathCSV: `src/data/fialda-${SCRAPER_TYPE_STOCKS.BANK}-${item}.csv`,
+        };
+      });
+    case SCRAPER_TYPE_STOCKS.FINANCE:
+      return SCRAPER_LIST_ITEM_FINANCE.map((item) => {
+        return {
+          symbolStock: item,
+          urlSite: `https://fwt.fialda.com/co-phieu/${item.toUpperCase()}/taichinh`,
+          pathJson: `src/data/fialda-${SCRAPER_TYPE_STOCKS.FINANCE}-${item}.json`,
+          pathCSV: `src/data/fialda-${SCRAPER_TYPE_STOCKS.FINANCE}-${item}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.LOGISTIC:
@@ -96,15 +115,6 @@ const getListScraperFialda = (type) => {
           pathCSV: `src/data/fialda-${SCRAPER_TYPE_STOCKS.COMMERCE}-${item}.csv`,
         };
       });
-    case SCRAPER_TYPE_STOCKS.FINANCE:
-      return SCRAPER_LIST_ITEM_FINANCE.map((item) => {
-        return {
-          symbolStock: item,
-          urlSite: `https://fwt.fialda.com/co-phieu/${item.toUpperCase()}/taichinh`,
-          pathJson: `src/data/fialda-${SCRAPER_TYPE_STOCKS.FINANCE}-${item}.json`,
-          pathCSV: `src/data/fialda-${SCRAPER_TYPE_STOCKS.FINANCE}-${item}.csv`,
-        };
-      });
     default:
       return SCRAPER_LIST_ITEM_OTHES.map((item) => {
         return {
@@ -124,6 +134,8 @@ const getURLExportCSV = (type) => {
       return `src/data/fialda-${SCRAPER_TYPE_STOCKS.TEST}.csv`;
     case SCRAPER_TYPE_STOCKS.INVESTED:
       return `src/data/fialda-${SCRAPER_TYPE_STOCKS.INVESTED}.csv`;
+    case SCRAPER_TYPE_STOCKS.BANK:
+      return `src/data/fialda-${SCRAPER_TYPE_STOCKS.BANK}.csv`;
     case SCRAPER_TYPE_STOCKS.FINANCE:
       return `src/data/fialda-${SCRAPER_TYPE_STOCKS.FINANCE}.csv`;
     case SCRAPER_TYPE_STOCKS.LOGISTIC:
