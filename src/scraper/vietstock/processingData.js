@@ -1,13 +1,6 @@
 const { checkIndexIsChecked } = require("./../../utils/vietstock/commons");
 
 const TEXT_WARNINGS = "Đang bị cảnh báo";
-const LIST_INFO_GET = [
-  "VN30",
-  "HNX30",
-  "GD ký quỹ",
-  "FTSE Vietnam ETF",
-  "V.N.M ETF",
-];
 
 const processingData = (dataInfo) => {
   const dataScraper = [];

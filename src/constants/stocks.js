@@ -13,7 +13,7 @@ const SCRAPER_TYPE_STOCKS = {
   OTHERS: "others",
 };
 
-const SCRAPER_LIST_ITEM_TEST = ["VIC", "CEO"];
+const SCRAPER_LIST_ITEM_TEST = ["ABB", "SSI"];
 
 const SCRAPER_LIST_ITEM_INVESTED = [
   "DCM",
@@ -49,20 +49,38 @@ const SCRAPER_LIST_ITEM_BANK = [
   "VPB",
 ];
 
+const SCRAPER_LIST_ITEM_FINANCE = [
+  "SSI",
+  "VND",
+  "HCM",
+  "MBS",
+  "VCI",
+  "ORS",
+  "CTS",
+  "BVS",
+  "-1-",
+  "MIG",
+  "BMI",
+];
+
 const SCRAPER_LIST_ITEM_LOGISTIC = [
-  // "ACV",
-  // "DVP",
-  // "GMD",
-  // "HAH",
-  // "HVN",
-  // "PVT",
+  "ACV",
+  "SCS",
+  "-1-",
+  "DVP",
+  "VOS",
+  "GMD",
+  "HAH",
+  "VSC",
+  "STG",
+  "TMS",
+  "-2-",
+  "HVN",
+  "VJC",
+  "-3-",
+  "PVT",
   "PVP",
-  // "SCS",
-  // "STG",
-  // "TMS",
-  // "VJC",
-  // "VOS",
-  // "VSC",
+  "VTO",
 ];
 
 const SCRAPER_LIST_ITEM_ELECTRICAL = [
@@ -72,72 +90,86 @@ const SCRAPER_LIST_ITEM_ELECTRICAL = [
   "PC1",
   "REE",
   "TTA",
+  "-1-",
   "HND",
   "PGV",
   "PPC",
   "QTP",
+  "-2-",
   "NT2",
   "POW",
+  "-3-",
   "CHP",
   "HNA",
   "TBC",
   "TMP",
   "VSH",
+  "-4-",
   "GEX",
 ];
 
 const SCRAPER_LIST_ITEM_AGRICULTURE = [
-  // "BAF",
-  // "DBC",
-  // "HAG",
-  // "MML",
-  // "VLC",
-  // "VSN",
-  // "PAN",
-  // "TAR",
+  "BAF",
+  "DBC",
+  "HAG",
+  "MML",
+  "VLC",
+  "VSN",
+  "-1-",
+  "PAN",
+  "TAR",
   "NSC",
   "LTG",
-  // "GVR",
-  // "PHR",
-  // "DCM",
-  // "DPM",
-  // "DGC",
-  // "LAS",
-  // "KDC",
+  "-2-",
+  "GVR",
+  "PHR",
+  "-3-",
+  "DCM",
+  "DPM",
+  "DGC",
+  "LAS",
+  "-4-",
+  "KDC",
   "SAB",
   "VNM",
 ];
 
-const SCRAPER_LIST_ITEM_PETROL = [
-  // "POW", "PLX", "PLC", "BSR",
-  "PVD",
-  "PVS",
-];
+const SCRAPER_LIST_ITEM_PETROL = ["POW", "PLX", "PLC", "BSR", "PVD", "PVS"];
 
 const SCRAPER_LIST_ITEM_EXPORT = [
-  //"GIL",
+  "GIL",
   "ADS",
   "VGT",
   "TNG",
-  //"ANV",
-  //"ASM",
-  //"IDI",
-  //"VHC",
+  "EVE",
+  "-1-",
+  "ANV",
+  "ASM",
+  "IDI",
+  "VHC",
+  "MPC",
 ];
 
 const SCRAPER_LIST_ITEM_REALESTATE = [
   // "HPG",
-  "HSG",
-  "NKG",
+  // "HSG",
+  // "NKG",
+  // "-1-",
   // "PTB",
   // "ACG",
+  // "-2-",
   // "KSB",
+  // "VLB",
+  // "DHA",
+  // "-3-",
   // "BCC",
-  "HT1",
+  // "HT1",
+  // "-4-",
   // "CTD",
   // "HTN",
   // "HBC",
   // "VCG",
+  // "-5-",
   // "DXG",
   // "KDH",
   // "NLG",
@@ -147,12 +179,14 @@ const SCRAPER_LIST_ITEM_REALESTATE = [
   // "CEO",
   // "VPI",
   // "AGG",
+  "CRE",
   // "KHG",
   // "VHM",
   // "VIC",
-  "NTL",
-  "CTR",
+  // "NTL",
+  // "CTR",
   // "VRE",
+  "-6-",
   // "IDC",
   // "BCM",
   // "VGC",
@@ -163,19 +197,21 @@ const SCRAPER_LIST_ITEM_REALESTATE = [
   // "D2D",
 ];
 
-const SCRAPER_LIST_ITEM_COMMERCE = ["DGW", "MSN", "MWG", "FRT"];
+const SCRAPER_LIST_ITEM_COMMERCE = ["DGW", "MSN", "MWG", "FRT", "PNJ"];
 
-const SCRAPER_LIST_ITEM_FINANCE = [
-  "SSI",
-  "VND",
-  "HCM",
-  "MBS",
-  "VCI",
-  "ORS",
-  "MIG",
+const SCRAPER_LIST_ITEM_OTHES = [
+  "FIT",
+  "-1-",
+  "FPT",
+  "-2-",
+  "BWE",
+  "TDM",
+  "-3-",
+  "SLS",
+  "QNS",
+  "-4-",
+  "NTP",
 ];
-
-const SCRAPER_LIST_ITEM_OTHES = ["FIT", "FPT", "BWE", "TDM", "SLS", "QNS"];
 
 module.exports = {
   SCRAPER_TYPE_STOCKS,
