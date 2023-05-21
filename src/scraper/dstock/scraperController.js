@@ -1,19 +1,19 @@
 const fs = require("fs");
 const converter = require("json-2-csv");
 const startBrowser = require("../../configs/browser");
-const scraperTakeProfit = require("./scraperTakeProfit");
+const scraperDStock = require("./scraperDStock");
 const processingData = require("./processingData");
 const { SCRAPER_TYPE_STOCKS } = require("../../constants/stocks");
 const {
-  getListScraperTakeProfit,
+  getListScraperDStock,
   getURLExportCSV,
-} = require("../../utils/takeprofit/commons");
+} = require("../../utils/dstock/commons");
 
-const type = SCRAPER_TYPE_STOCKS.TEST;
+const type = SCRAPER_TYPE_STOCKS.OTHERS;
 
 const scraperController = async () => {
   try {
-    const lstPageScraper = getListScraperTakeProfit(type);
+    const lstPageScraper = getListScraperDStock(type);
     console.log("lstPageScraper", lstPageScraper);
     // Scraper price fialda
     var dataSummary = [];
@@ -23,7 +23,7 @@ const scraperController = async () => {
         let browser = await startBrowser();
 
         // Scraper
-        const dataInfo = await scraperTakeProfit(
+        const dataInfo = await scraperDStock(
           browser,
           itemPage.urlSite,
           itemPage.symbolStock

@@ -4,12 +4,12 @@ const processingData = (dataInfo) => {
   /////////////////////////////////////////////////
   dataScraper.push({
     id: 1,
-    title: "TP Score",
+    title: "D-Rating",
     value:
-      dataInfo?.scoreTP === ""
+      dataInfo?.dRating === ""
         ? ""
-        : dataInfo?.scoreTP !== "/10"
-        ? `=${dataInfo?.scoreTP}`
+        : dataInfo?.dRating
+        ? `=${dataInfo?.dRating}/10`
         : `---`,
   });
   /////////////////////////////////////////////////
@@ -17,12 +17,12 @@ const processingData = (dataInfo) => {
   /////////////////////////////////////////////////
   dataScraper.push({
     id: 2,
-    title: "F Score",
+    title: "Greater D-Sector",
     value:
-      dataInfo?.scoreF === ""
+      dataInfo?.dRating === "" || dataInfo?.dSector === ""
         ? ""
-        : dataInfo?.scoreF !== "/10"
-        ? `=${dataInfo?.scoreF}`
+        : dataInfo?.dRating > dataInfo?.dSector
+        ? "x"
         : `---`,
   });
   /////////////////////////////////////////////////

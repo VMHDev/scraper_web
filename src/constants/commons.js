@@ -4,6 +4,7 @@ const TYPE_SCRAPER = {
   FIALDA: 3,
   VIETSTOCK: 4,
   TAKEPROFIT: 5,
+  DSTOCK: 6,
 };
 
 module.exports = { TYPE_SCRAPER };
