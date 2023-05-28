@@ -6,44 +6,75 @@ const processingData = (dataInfo) => {
   const dataScraper = [];
 
   /////////////////////////////////////////////////
-  dataInfo?.profileStocks?.forEach((item, idx) => {
-    if (idx === 0) {
-      dataScraper.push({
-        id: 0,
-        title: "Year Of Listing",
-        value: item?.value?.substr(6, 4),
-      });
-    }
-  });
+  if (dataInfo?.profileStocks) {
+    dataInfo?.profileStocks?.forEach((item, idx) => {
+      if (idx === 0) {
+        dataScraper.push({
+          id: 0,
+          title: "Year Of Listing",
+          value: item?.value?.substr(6, 4),
+        });
+      }
+    });
+  } else {
+    dataScraper.push({
+      id: 0,
+      title: "Year Of Listing",
+      value: "",
+    });
+  }
 
   /////////////////////////////////////////////////
-  dataInfo?.indexStocks?.forEach((item, idx) => {
-    if (item.typeInfo === "HNX30" || item.typeInfo === "VN30") {
-      dataScraper.push({
-        id: 1,
-        title: "VN30/HNX30",
-        value: checkIndexIsChecked(item?.infoChecked || ""),
-      });
-    } else if (item.typeInfo === "GD ký quỹ") {
-      dataScraper.push({
-        id: 2,
-        title: "Margin",
-        value: checkIndexIsChecked(item?.infoChecked || ""),
-      });
-    } else if (item.typeInfo === "FTSE Vietnam ETF") {
-      dataScraper.push({
-        id: 3,
-        title: "FTSE VN ETF",
-        value: checkIndexIsChecked(item?.infoChecked || ""),
-      });
-    } else if (item.typeInfo === "V.N.M ETF") {
-      dataScraper.push({
-        id: 4,
-        title: "VNM ETF",
-        value: checkIndexIsChecked(item?.infoChecked || ""),
-      });
-    }
-  });
+  if (dataInfo?.indexStocks) {
+    dataInfo?.indexStocks?.forEach((item, idx) => {
+      if (item.typeInfo === "HNX30" || item.typeInfo === "VN30") {
+        dataScraper.push({
+          id: 1,
+          title: "VN30/HNX30",
+          value: checkIndexIsChecked(item?.infoChecked || ""),
+        });
+      } else if (item.typeInfo === "GD ký quỹ") {
+        dataScraper.push({
+          id: 2,
+          title: "Margin",
+          value: checkIndexIsChecked(item?.infoChecked || ""),
+        });
+      } else if (item.typeInfo === "FTSE Vietnam ETF") {
+        dataScraper.push({
+          id: 3,
+          title: "FTSE VN ETF",
+          value: checkIndexIsChecked(item?.infoChecked || ""),
+        });
+      } else if (item.typeInfo === "V.N.M ETF") {
+        dataScraper.push({
+          id: 4,
+          title: "VNM ETF",
+          value: checkIndexIsChecked(item?.infoChecked || ""),
+        });
+      }
+    });
+  } else {
+    dataScraper.push({
+      id: 1,
+      title: "VN30/HNX30",
+      value: "",
+    });
+    dataScraper.push({
+      id: 2,
+      title: "Margin",
+      value: "",
+    });
+    dataScraper.push({
+      id: 3,
+      title: "FTSE VN ETF",
+      value: "",
+    });
+    dataScraper.push({
+      id: 4,
+      title: "VNM ETF",
+      value: "",
+    });
+  }
 
   /////////////////////////////////////////////////
   dataScraper.push({
@@ -52,7 +83,6 @@ const processingData = (dataInfo) => {
     value: dataInfo?.priceStocks?.infoWarnings === TEXT_WARNINGS ? "x" : "",
   });
   /////////////////////////////////////////////////
-
   const checkExistVNHNX = (obj) => obj.title === "VN30/HNX30";
   const isExistVNHNX = dataScraper.some(checkExistVNHNX);
   console.log("isExistVNHNX", isExistVNHNX);

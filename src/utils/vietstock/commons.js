@@ -21,8 +21,6 @@ const getListScraperVietstock = (type) => {
         return {
           symbolStock: item,
           urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
-          pathJson: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.TEST}-${item}.json`,
-          pathCSV: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.TEST}-${item}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.INVESTED:
@@ -30,8 +28,6 @@ const getListScraperVietstock = (type) => {
         return {
           symbolStock: item,
           urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
-          pathJson: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.INVESTED}-${item}.json`,
-          pathCSV: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.INVESTED}-${item}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.BANK:
@@ -39,8 +35,6 @@ const getListScraperVietstock = (type) => {
         return {
           symbolStock: item,
           urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
-          pathJson: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.BANK}-${item}.json`,
-          pathCSV: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.BANK}-${item}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.LOGISTIC:
@@ -48,8 +42,6 @@ const getListScraperVietstock = (type) => {
         return {
           symbolStock: item,
           urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
-          pathJson: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.LOGISTIC}-${item}.json`,
-          pathCSV: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.LOGISTIC}-${item}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.ELECTRICAL:
@@ -57,8 +49,6 @@ const getListScraperVietstock = (type) => {
         return {
           symbolStock: item,
           urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
-          pathJson: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.ELECTRICAL}-${item}.json`,
-          pathCSV: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.ELECTRICAL}-${item}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.AGRICULTURE:
@@ -66,8 +56,6 @@ const getListScraperVietstock = (type) => {
         return {
           symbolStock: item,
           urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
-          pathJson: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.AGRICULTURE}-${item}.json`,
-          pathCSV: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.AGRICULTURE}-${item}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.PETROL:
@@ -75,8 +63,6 @@ const getListScraperVietstock = (type) => {
         return {
           symbolStock: item,
           urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
-          pathJson: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.PETROL}-${item}.json`,
-          pathCSV: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.PETROL}-${item}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.EXPORT:
@@ -84,8 +70,6 @@ const getListScraperVietstock = (type) => {
         return {
           symbolStock: item,
           urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
-          pathJson: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.EXPORT}-${item}.json`,
-          pathCSV: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.EXPORT}-${item}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.REALESTATE:
@@ -93,8 +77,6 @@ const getListScraperVietstock = (type) => {
         return {
           symbolStock: item,
           urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
-          pathJson: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.REALESTATE}-${item}.json`,
-          pathCSV: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.REALESTATE}-${item}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.COMMERCE:
@@ -102,8 +84,6 @@ const getListScraperVietstock = (type) => {
         return {
           symbolStock: item,
           urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
-          pathJson: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.COMMERCE}-${item}.json`,
-          pathCSV: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.COMMERCE}-${item}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.FINANCE:
@@ -111,8 +91,6 @@ const getListScraperVietstock = (type) => {
         return {
           symbolStock: item,
           urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
-          pathJson: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.FINANCE}-${item}.json`,
-          pathCSV: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.FINANCE}-${item}.csv`,
         };
       });
     default:
@@ -120,8 +98,6 @@ const getListScraperVietstock = (type) => {
         return {
           symbolStock: item,
           urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
-          pathJson: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.OTHERS}-${item}.json`,
-          pathCSV: `src/data/vietstock-${SCRAPER_TYPE_STOCKS.OTHERS}-${item}.csv`,
         };
       });
       break;

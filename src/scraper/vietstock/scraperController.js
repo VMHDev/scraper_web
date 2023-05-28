@@ -22,7 +22,11 @@ const scraperController = async () => {
         let browser = await startBrowser();
 
         // Scraper
-        const dataInfo = await scraperVietstock(browser, itemPage.urlSite);
+        const dataInfo = await scraperVietstock(
+          browser,
+          itemPage.urlSite,
+          itemPage.symbolStock
+        );
         console.log("dataInfo", dataInfo);
 
         // Processing data

@@ -13,7 +13,7 @@ const SCRAPER_TYPE_STOCKS = {
   OTHERS: "others",
 };
 
-const SCRAPER_LIST_ITEM_TEST = ["ABB", "SSI"];
+const SCRAPER_LIST_ITEM_TEST = ["BVS", "BMI", "VTO"];
 
 const SCRAPER_LIST_ITEM_INVESTED = [
   "DCM",
@@ -214,6 +214,8 @@ const SCRAPER_LIST_ITEM_OTHES = [
   "QNS",
   "-4-",
   "NTP",
+  "BMP",
+  "AAA",
 ];
 
 module.exports = {

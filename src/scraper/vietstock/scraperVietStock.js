@@ -1,12 +1,39 @@
-const scraperVietstock = (browser, url) =>
+const scraperVietstock = (browser, url, symbol) =>
   new Promise(async (resolve, reject) => {
-    let dataScraper = {};
+    let dataScraper = {
+      indexStocks: null,
+      priceStocks: null,
+      profileStocks: null,
+    };
+    let isHasError = false;
+
+    if (
+      symbol === "-1-" ||
+      symbol === "-2-" ||
+      symbol === "-3-" ||
+      symbol === "-4-" ||
+      symbol === "-5-" ||
+      symbol === "-6-" ||
+      symbol === "-7-" ||
+      symbol === "-8-"
+    ) {
+      resolve(dataScraper);
+      return;
+    }
+
     try {
       let pageInfo = await browser.newPage();
       console.log(">> Open new page ...");
       await pageInfo.goto(url);
       console.log(">> Accessing " + url);
-      await pageInfo.waitForSelector("#order-chart-index");
+      await pageInfo.waitForSelector("#order-chart-index").catch((err) => {
+        console.log("Error Scraper >>> ", JSON.stringify(err));
+        isHasError = true;
+      });
+      if (isHasError) {
+        resolve(dataScraper);
+        return;
+      }
       console.log(">> Page load done...");
 
       //////////////////////////////////////////////////////////
@@ -56,16 +83,16 @@ const scraperVietstock = (browser, url) =>
       console.log("dataProfileStocks", JSON.stringify(dataProfileStocks));
       dataScraper.profileStocks = dataProfileStocks;
 
-      await pageInfo.waitForTimeout(1 * 1000);
-      await pageInfo.close();
-      console.log(">> Tab đã đóng...");
+      //////////////////////////////////////////////////////////
+      if (pageInfo) {
+        await pageInfo.waitForTimeout(2 * 1000);
+        await pageInfo.close();
+        console.log(">> Tab đã đóng...");
+      }
 
       resolve(dataScraper);
     } catch (error) {
       console.log("Controller failed: " + error);
-      await pageInfo.close();
-      console.log(">> Tab đã đóng...");
-      resolve(dataScraper);
       reject(error);
     }
   });
