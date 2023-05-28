@@ -5,7 +5,7 @@ const scraperVietStock = require("./src/scraper/vietstock/scraperController");
 const scraperTakeProfit = require("./src/scraper/takeprofit/scraperController");
 const scraperDStock = require("./src/scraper/dstock/scraperController");
 
-let typeScraper = TYPE_SCRAPER.VIETSTOCK;
+let typeScraper = TYPE_SCRAPER.FIALDA;
 
 switch (typeScraper) {
   case TYPE_SCRAPER.BATDONGSAN:

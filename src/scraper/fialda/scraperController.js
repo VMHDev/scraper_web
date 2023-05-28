@@ -17,7 +17,11 @@ const scraperController = async () => {
       let browser = await startBrowser();
 
       // Scraper
-      const dataInfo = await scraperFialda(browser, itemPage.urlSite);
+      const dataInfo = await scraperFialda(
+        browser,
+        itemPage.urlSite,
+        itemPage.symbolStock
+      );
       console.log("dataInfo", dataInfo);
 
       // Write file json

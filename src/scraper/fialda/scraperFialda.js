@@ -1,5 +1,27 @@
-const scraperFialda = (browser, url) =>
+const scraperFialda = (browser, url, symbol) =>
   new Promise(async (resolve, reject) => {
+    let dataScraper = {
+      intro: null,
+      price: null,
+      overview: null,
+      financeOne: null,
+      financeTwo: null,
+    };
+
+    if (
+      symbol === "-1-" ||
+      symbol === "-2-" ||
+      symbol === "-3-" ||
+      symbol === "-4-" ||
+      symbol === "-5-" ||
+      symbol === "-6-" ||
+      symbol === "-7-" ||
+      symbol === "-8-"
+    ) {
+      resolve(dataScraper);
+      return;
+    }
+
     try {
       let pageInfo = await browser.newPage();
       console.log(">> Open new page ...");
@@ -7,8 +29,6 @@ const scraperFialda = (browser, url) =>
       console.log(">> Accessing " + url);
       await pageInfo.waitForSelector("table.table-striped");
       console.log(">> Page load done...");
-
-      let dataScraper = {};
 
       //////////////////////////////////////////////////////////
       const dataIntro = await pageInfo.$eval(

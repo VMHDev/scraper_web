@@ -9,7 +9,7 @@ const {
   getURLExportCSV,
 } = require("../../utils/fialda/commons");
 
-const type = SCRAPER_TYPE_STOCKS.TEST;
+const type = SCRAPER_TYPE_STOCKS.OTHERS;
 
 const scraperController = async () => {
   try {
@@ -21,7 +21,11 @@ const scraperController = async () => {
       let browser = await startBrowser();
 
       // Scraper
-      const dataInfo = await scraperFialda(browser, itemPage.urlSite);
+      const dataInfo = await scraperFialda(
+        browser,
+        itemPage.urlSite,
+        itemPage.symbolStock
+      );
       console.log("dataInfo", dataInfo);
 
       // Processing data
