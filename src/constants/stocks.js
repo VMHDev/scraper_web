@@ -13,7 +13,7 @@ const SCRAPER_TYPE_STOCKS = {
   OTHERS: "others",
 };
 
-const SCRAPER_LIST_ITEM_TEST = ["BVS", "BMI", "VTO"];
+const SCRAPER_LIST_ITEM_TEST = ["BVS"];
 
 const SCRAPER_LIST_ITEM_INVESTED = [
   "DCM",
