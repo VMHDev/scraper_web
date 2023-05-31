@@ -106,6 +106,7 @@ const SCRAPER_LIST_ITEM_ELECTRICAL = [
   "VSH",
   "-4-",
   "GEX",
+  "DQC",
 ];
 
 const SCRAPER_LIST_ITEM_AGRICULTURE = [

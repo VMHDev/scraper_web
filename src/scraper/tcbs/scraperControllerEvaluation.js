@@ -6,7 +6,7 @@ const processingDataEvaluation = require("./processingDataEvaluation");
 const { SCRAPER_TYPE_STOCKS } = require("../../constants/stocks");
 const { getListScraper, getURLExportCSV } = require("../../utils/tcbs/commons");
 
-const type = SCRAPER_TYPE_STOCKS.OTHERS;
+const type = SCRAPER_TYPE_STOCKS.REALESTATE;
 
 const scraperController = async () => {
   try {
