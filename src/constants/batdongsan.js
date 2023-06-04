@@ -2,6 +2,7 @@ const SCRAPER_LIST_ITEM = {
   opalRiverside: "opal-riverside",
   opalGarden: "opal-garden",
   opalBoulevard: "opal-boulevard",
+  floraNovia: "flora-novia",
   prosperPlaza: "prosper-plaza",
   eightxplus: "8x-plus-truong-chinh",
   lavitaCharm: "lavita-charm",
@@ -25,10 +26,15 @@ const SCRAPER_LIST_PAGE = [
   //   pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.opalBoulevard}.csv`,
   // },
   {
-    urlSite: `https://batdongsan.com.vn/ban-can-ho-chung-cu-${SCRAPER_LIST_ITEM.prosperPlaza}?sortValue=1`,
-    pathJson: `src/data/batdongsan-${SCRAPER_LIST_ITEM.prosperPlaza}.json`,
-    pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.prosperPlaza}.csv`,
+    urlSite: `https://batdongsan.com.vn/ban-can-ho-chung-cu-${SCRAPER_LIST_ITEM.floraNovia}?sortValue=1`,
+    pathJson: `src/data/batdongsan-${SCRAPER_LIST_ITEM.floraNovia}.json`,
+    pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.floraNovia}.csv`,
   },
+  // {
+  //   urlSite: `https://batdongsan.com.vn/ban-can-ho-chung-cu-${SCRAPER_LIST_ITEM.prosperPlaza}?sortValue=1`,
+  //   pathJson: `src/data/batdongsan-${SCRAPER_LIST_ITEM.prosperPlaza}.json`,
+  //   pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.prosperPlaza}.csv`,
+  // },
   // {
   //   urlSite: `https://batdongsan.com.vn/ban-can-ho-chung-cu-can-ho-${SCRAPER_LIST_ITEM.eightxplus}?sortValue=1`,
   //   pathJson: `src/data/batdongsan-${SCRAPER_LIST_ITEM.eightxplus}.json`,

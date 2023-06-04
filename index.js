@@ -6,7 +6,7 @@ const scraperTakeProfit = require("./src/scraper/takeprofit/scraperController");
 const scraperDStock = require("./src/scraper/dstock/scraperController");
 const scraperControllerEvaluation = require("./src/scraper/tcbs/scraperControllerEvaluation");
 
-let typeScraper = TYPE_SCRAPER.TCBS_EVALUATION;
+let typeScraper = TYPE_SCRAPER.BATDONGSAN;
 
 switch (typeScraper) {
   case TYPE_SCRAPER.BATDONGSAN:

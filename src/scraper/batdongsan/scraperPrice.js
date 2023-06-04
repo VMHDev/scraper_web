@@ -1,16 +1,24 @@
 const scraperPrice = (browser, url) =>
   new Promise(async (resolve, reject) => {
+    let dataScraper = [];
+    let isHasError = false;
+    let pageInfo = await browser.newPage();
     try {
-      let pageInfo = await browser.newPage();
       console.log(">> Open new page ...");
       await pageInfo.goto(url);
       console.log(">> Accessing " + url);
-      await pageInfo.waitForSelector("#boxSearchForm");
+      await pageInfo.waitForSelector("#boxSearchForm").catch((err) => {
+        console.log("Error Scraper >>> ", JSON.stringify(err));
+        isHasError = true;
+      });
+      if (isHasError) {
+        resolve(dataScraper);
+        return;
+      }
       console.log(">> Page load done...");
 
-      const dataItem = await pageInfo.$$eval(
-        "#product-lists-web > div.js__card ",
-        (els) => {
+      dataScraper = await pageInfo
+        .$$eval("#product-lists-web > div.js__card ", (els) => {
           let tmpDataItem = els.map((el, idx) => {
             return {
               id: idx,
@@ -31,13 +39,15 @@ const scraperPrice = (browser, url) =>
             };
           });
           return tmpDataItem;
-        }
-      );
+        })
+        .catch((err) => {
+          console.log("Error Scraper Price >>> ", err);
+        });
 
       await pageInfo.waitForTimeout(2 * 1000);
       await pageInfo.close();
       console.log(">> Tab đã đóng...");
-      resolve(dataItem);
+      resolve(dataScraper);
     } catch (error) {
       console.log("Controller failed: " + error);
       await pageInfo.close();
