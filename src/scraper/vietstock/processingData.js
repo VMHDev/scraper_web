@@ -15,11 +15,23 @@ const processingData = (dataInfo) => {
           value: item?.value?.substr(6, 4),
         });
       }
+      if (idx === 1) {
+        dataScraper.push({
+          id: 6,
+          title: "Price Init",
+          value: Number(item?.value?.replace(/,/g, "") || 0) / 1000,
+        });
+      }
     });
   } else {
     dataScraper.push({
       id: 0,
       title: "Year Of Listing",
+      value: "",
+    });
+    dataScraper.push({
+      id: 6,
+      title: "Price Init",
       value: "",
     });
   }
