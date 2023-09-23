@@ -12,6 +12,8 @@ const {
   SCRAPER_LIST_ITEM_REALESTATE,
   SCRAPER_LIST_ITEM_COMMERCE,
   SCRAPER_LIST_ITEM_OTHES,
+  SCRAPER_LIST_ITEM_VN30,
+  SCRAPER_LIST_ITEM_HNX30,
 } = require("../../constants/stocks");
 
 const getListScraperFialda = (type) => {
@@ -115,6 +117,24 @@ const getListScraperFialda = (type) => {
           pathCSV: `src/data/fialda-${SCRAPER_TYPE_STOCKS.COMMERCE}-${item}.csv`,
         };
       });
+    case SCRAPER_TYPE_STOCKS.VN30:
+      return SCRAPER_LIST_ITEM_VN30.map((item) => {
+        return {
+          symbolStock: item,
+          urlSite: `https://fwt.fialda.com/co-phieu/${item.toUpperCase()}/taichinh`,
+          pathJson: `src/data/fialda-${SCRAPER_TYPE_STOCKS.VN30}-${item}.json`,
+          pathCSV: `src/data/fialda-${SCRAPER_TYPE_STOCKS.VN30}-${item}.csv`,
+        };
+      });
+    case SCRAPER_TYPE_STOCKS.HNX30:
+      return SCRAPER_LIST_ITEM_HNX30.map((item) => {
+        return {
+          symbolStock: item,
+          urlSite: `https://fwt.fialda.com/co-phieu/${item.toUpperCase()}/taichinh`,
+          pathJson: `src/data/fialda-${SCRAPER_TYPE_STOCKS.HNX30}-${item}.json`,
+          pathCSV: `src/data/fialda-${SCRAPER_TYPE_STOCKS.HNX30}-${item}.csv`,
+        };
+      });
     default:
       return SCRAPER_LIST_ITEM_OTHES.map((item) => {
         return {
@@ -124,7 +144,6 @@ const getListScraperFialda = (type) => {
           pathCSV: `src/data/fialda-${SCRAPER_TYPE_STOCKS.OTHERS}-${item}.csv`,
         };
       });
-      break;
   }
 };
 
@@ -152,9 +171,12 @@ const getURLExportCSV = (type) => {
       return `src/data/fialda-${SCRAPER_TYPE_STOCKS.REALESTATE}.csv`;
     case SCRAPER_TYPE_STOCKS.COMMERCE:
       return `src/data/fialda-${SCRAPER_TYPE_STOCKS.COMMERCE}.csv`;
+    case SCRAPER_TYPE_STOCKS.VN30:
+      return `src/data/fialda-${SCRAPER_TYPE_STOCKS.VN30}.csv`;
+    case SCRAPER_TYPE_STOCKS.HNX30:
+      return `src/data/fialda-${SCRAPER_TYPE_STOCKS.HNX30}.csv`;
     default:
       return `src/data/fialda-${SCRAPER_TYPE_STOCKS.OTHERS}.csv`;
-      break;
   }
 };
 

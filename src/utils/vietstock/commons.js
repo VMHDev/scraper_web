@@ -12,6 +12,8 @@ const {
   SCRAPER_LIST_ITEM_COMMERCE,
   SCRAPER_LIST_ITEM_FINANCE,
   SCRAPER_LIST_ITEM_OTHES,
+  SCRAPER_LIST_ITEM_VN30,
+  SCRAPER_LIST_ITEM_HNX30,
 } = require("../../constants/stocks");
 
 const getListScraperVietstock = (type) => {
@@ -93,6 +95,20 @@ const getListScraperVietstock = (type) => {
           urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
         };
       });
+    case SCRAPER_TYPE_STOCKS.VN30:
+      return SCRAPER_LIST_ITEM_VN30.map((item) => {
+        return {
+          symbolStock: item,
+          urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
+        };
+      });
+    case SCRAPER_TYPE_STOCKS.HNX30:
+      return SCRAPER_LIST_ITEM_HNX30.map((item) => {
+        return {
+          symbolStock: item,
+          urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
+        };
+      });
     default:
       return SCRAPER_LIST_ITEM_OTHES.map((item) => {
         return {
@@ -128,6 +144,10 @@ const getURLExportCSV = (type) => {
       return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.COMMERCE}.csv`;
     case SCRAPER_TYPE_STOCKS.FINANCE:
       return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.FINANCE}.csv`;
+    case SCRAPER_TYPE_STOCKS.VN30:
+      return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.VN30}.csv`;
+    case SCRAPER_TYPE_STOCKS.HNX30:
+      return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.HNX30}.csv`;
     default:
       return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.OTHERS}.csv`;
       break;
