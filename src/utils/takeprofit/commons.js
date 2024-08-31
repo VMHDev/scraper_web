@@ -97,13 +97,13 @@ const getListScraperTakeProfit = (type) => {
           pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.EXPORT}-${item}.csv`,
         };
       });
-    case SCRAPER_TYPE_STOCKS.REALESTATE:
+    case SCRAPER_TYPE_STOCKS.REALESTATE_I:
       return SCRAPER_LIST_ITEM_REALESTATE.map((item) => {
         return {
           symbolStock: item,
           urlSite: `https://takeprofit.vn/phan-tich-co-phieu/tong-quan-co-phieu?ticker=${item.toUpperCase()}`,
-          pathJson: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.REALESTATE}-${item}.json`,
-          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.REALESTATE}-${item}.csv`,
+          pathJson: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.REALESTATE_I}-${item}.json`,
+          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.REALESTATE_I}-${item}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.COMMERCE:
@@ -146,8 +146,8 @@ const getURLExportCSV = (type) => {
       return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.PETROL}.csv`;
     case SCRAPER_TYPE_STOCKS.EXPORT:
       return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.EXPORT}.csv`;
-    case SCRAPER_TYPE_STOCKS.REALESTATE:
-      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.REALESTATE}.csv`;
+    case SCRAPER_TYPE_STOCKS.REALESTATE_I:
+      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.REALESTATE_I}.csv`;
     case SCRAPER_TYPE_STOCKS.COMMERCE:
       return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.COMMERCE}.csv`;
     case SCRAPER_TYPE_STOCKS.FINANCE:

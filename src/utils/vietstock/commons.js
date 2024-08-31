@@ -74,7 +74,7 @@ const getListScraperVietstock = (type) => {
           urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
         };
       });
-    case SCRAPER_TYPE_STOCKS.REALESTATE:
+    case SCRAPER_TYPE_STOCKS.REALESTATE_I:
       return SCRAPER_LIST_ITEM_REALESTATE.map((item) => {
         return {
           symbolStock: item,
@@ -138,8 +138,8 @@ const getURLExportCSV = (type) => {
       return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.PETROL}.csv`;
     case SCRAPER_TYPE_STOCKS.EXPORT:
       return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.EXPORT}.csv`;
-    case SCRAPER_TYPE_STOCKS.REALESTATE:
-      return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.REALESTATE}.csv`;
+    case SCRAPER_TYPE_STOCKS.REALESTATE_I:
+      return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.REALESTATE_I}.csv`;
     case SCRAPER_TYPE_STOCKS.COMMERCE:
       return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.COMMERCE}.csv`;
     case SCRAPER_TYPE_STOCKS.FINANCE:

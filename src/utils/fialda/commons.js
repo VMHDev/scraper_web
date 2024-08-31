@@ -9,7 +9,8 @@ const {
   SCRAPER_LIST_ITEM_AGRICULTURE,
   SCRAPER_LIST_ITEM_PETROL,
   SCRAPER_LIST_ITEM_EXPORT,
-  SCRAPER_LIST_ITEM_REALESTATE,
+  SCRAPER_LIST_ITEM_REALESTATE_I,
+  SCRAPER_LIST_ITEM_REALESTATE_II,
   SCRAPER_LIST_ITEM_COMMERCE,
   SCRAPER_LIST_ITEM_OTHES,
   SCRAPER_LIST_ITEM_VN30,
@@ -99,13 +100,22 @@ const getListScraperFialda = (type) => {
           pathCSV: `src/data/fialda-${SCRAPER_TYPE_STOCKS.EXPORT}-${item}.csv`,
         };
       });
-    case SCRAPER_TYPE_STOCKS.REALESTATE:
-      return SCRAPER_LIST_ITEM_REALESTATE.map((item) => {
+    case SCRAPER_TYPE_STOCKS.REALESTATE_I:
+      return SCRAPER_LIST_ITEM_REALESTATE_I.map((item) => {
         return {
           symbolStock: item,
           urlSite: `https://fwt.fialda.com/co-phieu/${item.toUpperCase()}/taichinh`,
-          pathJson: `src/data/fialda-${SCRAPER_TYPE_STOCKS.REALESTATE}-${item}.json`,
-          pathCSV: `src/data/fialda-${SCRAPER_TYPE_STOCKS.REALESTATE}-${item}.csv`,
+          pathJson: `src/data/fialda-${SCRAPER_TYPE_STOCKS.REALESTATE_I}-${item}.json`,
+          pathCSV: `src/data/fialda-${SCRAPER_TYPE_STOCKS.REALESTATE_I}-${item}.csv`,
+        };
+      });
+    case SCRAPER_TYPE_STOCKS.REALESTATE_II:
+      return SCRAPER_LIST_ITEM_REALESTATE_II.map((item) => {
+        return {
+          symbolStock: item,
+          urlSite: `https://fwt.fialda.com/co-phieu/${item.toUpperCase()}/taichinh`,
+          pathJson: `src/data/fialda-${SCRAPER_TYPE_STOCKS.REALESTATE_II}-${item}.json`,
+          pathCSV: `src/data/fialda-${SCRAPER_TYPE_STOCKS.REALESTATE_II}-${item}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.COMMERCE:
@@ -167,8 +177,10 @@ const getURLExportCSV = (type) => {
       return `src/data/fialda-${SCRAPER_TYPE_STOCKS.PETROL}.csv`;
     case SCRAPER_TYPE_STOCKS.EXPORT:
       return `src/data/fialda-${SCRAPER_TYPE_STOCKS.EXPORT}.csv`;
-    case SCRAPER_TYPE_STOCKS.REALESTATE:
-      return `src/data/fialda-${SCRAPER_TYPE_STOCKS.REALESTATE}.csv`;
+    case SCRAPER_TYPE_STOCKS.REALESTATE_I:
+      return `src/data/fialda-${SCRAPER_TYPE_STOCKS.REALESTATE_I}.csv`;
+    case SCRAPER_TYPE_STOCKS.REALESTATE_II:
+      return `src/data/fialda-${SCRAPER_TYPE_STOCKS.REALESTATE_II}.csv`;
     case SCRAPER_TYPE_STOCKS.COMMERCE:
       return `src/data/fialda-${SCRAPER_TYPE_STOCKS.COMMERCE}.csv`;
     case SCRAPER_TYPE_STOCKS.VN30:

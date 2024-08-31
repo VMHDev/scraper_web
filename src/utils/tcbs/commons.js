@@ -72,7 +72,7 @@ const getListScraper = (type) => {
           urlSite: `https://tcinvest.tcbs.com.vn/tc-price/tc-analysis/evaluation?ticker=${item.toUpperCase()}`,
         };
       });
-    case SCRAPER_TYPE_STOCKS.REALESTATE:
+    case SCRAPER_TYPE_STOCKS.REALESTATE_I:
       return SCRAPER_LIST_ITEM_REALESTATE.map((item) => {
         return {
           symbolStock: item,
@@ -122,8 +122,8 @@ const getURLExportCSV = (type) => {
       return `src/data/tcbs-evaluation-${SCRAPER_TYPE_STOCKS.PETROL}.csv`;
     case SCRAPER_TYPE_STOCKS.EXPORT:
       return `src/data/tcbs-evaluation-${SCRAPER_TYPE_STOCKS.EXPORT}.csv`;
-    case SCRAPER_TYPE_STOCKS.REALESTATE:
-      return `src/data/tcbs-evaluation-${SCRAPER_TYPE_STOCKS.REALESTATE}.csv`;
+    case SCRAPER_TYPE_STOCKS.REALESTATE_I:
+      return `src/data/tcbs-evaluation-${SCRAPER_TYPE_STOCKS.REALESTATE_I}.csv`;
     case SCRAPER_TYPE_STOCKS.COMMERCE:
       return `src/data/tcbs-evaluation-${SCRAPER_TYPE_STOCKS.COMMERCE}.csv`;
     case SCRAPER_TYPE_STOCKS.FINANCE:

@@ -79,7 +79,7 @@ const getListScraperDStock = (type) => {
           urlSite: `https://dstock.vndirect.com.vn/d-rating-chuyen-sau/${item.toUpperCase()}`,
         };
       });
-    case SCRAPER_TYPE_STOCKS.REALESTATE:
+    case SCRAPER_TYPE_STOCKS.REALESTATE_I:
       return SCRAPER_LIST_ITEM_REALESTATE.map((item) => {
         return {
           symbolStock: item,
@@ -124,8 +124,8 @@ const getURLExportCSV = (type) => {
       return `src/data/dstock-${SCRAPER_TYPE_STOCKS.PETROL}.csv`;
     case SCRAPER_TYPE_STOCKS.EXPORT:
       return `src/data/dstock-${SCRAPER_TYPE_STOCKS.EXPORT}.csv`;
-    case SCRAPER_TYPE_STOCKS.REALESTATE:
-      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.REALESTATE}.csv`;
+    case SCRAPER_TYPE_STOCKS.REALESTATE_I:
+      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.REALESTATE_I}.csv`;
     case SCRAPER_TYPE_STOCKS.COMMERCE:
       return `src/data/dstock-${SCRAPER_TYPE_STOCKS.COMMERCE}.csv`;
     default:
