@@ -22,8 +22,8 @@ const scraperFialda = (browser, url, symbol) =>
       return;
     }
 
+    let pageInfo = await browser.newPage();
     try {
-      let pageInfo = await browser.newPage();
       console.log(">> Open new page ...");
       await pageInfo.goto(url);
       console.log(">> Accessing " + url);

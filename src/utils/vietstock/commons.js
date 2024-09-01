@@ -150,7 +150,6 @@ const getURLExportCSV = (type) => {
       return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.HNX30}.csv`;
     default:
       return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.OTHERS}.csv`;
-      break;
   }
 };
 

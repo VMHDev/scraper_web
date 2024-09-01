@@ -1,3 +1,5 @@
+const { delayRequest } = require("./../../utils/commons");
+
 const scraperVietstock = (browser, url, symbol) =>
   new Promise(async (resolve, reject) => {
     let dataScraper = {
@@ -21,10 +23,15 @@ const scraperVietstock = (browser, url, symbol) =>
       return;
     }
 
+    let pageInfo = await browser.newPage();
     try {
-      let pageInfo = await browser.newPage();
-      console.log(">> Open new page ...");
-      await pageInfo.goto(url);
+      console.log(">> Open new page ...: ", url);
+      await pageInfo
+        .goto(url, { waitUntil: "load", timeout: 5 * 10000 })
+        .catch((err) => {
+          console.log("Error Scraper >>> ", JSON.stringify(err));
+          isHasError = true;
+        });
       console.log(">> Accessing " + url);
       await pageInfo.waitForSelector("#order-chart-index").catch((err) => {
         console.log("Error Scraper >>> ", JSON.stringify(err));
@@ -85,14 +92,17 @@ const scraperVietstock = (browser, url, symbol) =>
 
       //////////////////////////////////////////////////////////
       if (pageInfo) {
-        await pageInfo.waitForTimeout(2 * 1000);
+        await pageInfo.waitForTimeout(5 * 1000);
         await pageInfo.close();
+        await delayRequest(5 * 1000, "Next Pages");
         console.log(">> Tab đã đóng...");
       }
 
       resolve(dataScraper);
     } catch (error) {
       console.log("Controller failed: " + error);
+      await pageInfo.close();
+      console.log(">> Tab đã đóng...");
       reject(error);
     }
   });

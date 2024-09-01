@@ -321,6 +321,7 @@ const SCRAPER_LIST_ITEM_VN30 = [
   "POW",
   "SAB",
   "SHB",
+  "SSB",
   "SSI",
   "STB",
   "TCB",
@@ -336,10 +337,10 @@ const SCRAPER_LIST_ITEM_VN30 = [
 ];
 
 const SCRAPER_LIST_ITEM_HNX30 = [
-  "BCC",
   "BVS",
+  "CAP",
   "CEO",
-  "DDG",
+  "DHT",
   "DTD",
   "DVM",
   "DXP",
@@ -351,20 +352,21 @@ const SCRAPER_LIST_ITEM_HNX30 = [
   "LAS",
   "LHC",
   "MBS",
-  "NBC",
   "NTP",
+  "NVB",
   "PLC",
+  "PSD",
   "PVC",
+  "PVG",
+  "PVS",
   "SHS",
   "SLS",
-  "TAR",
-  "TDN",
   "TIG",
+  "TMB",
   "TNG",
   "TVD",
   "VC3",
   "VCS",
-  "VIG",
 ];
 
 module.exports = {
