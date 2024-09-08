@@ -8,7 +8,8 @@ const {
   SCRAPER_LIST_ITEM_AGRICULTURE,
   SCRAPER_LIST_ITEM_PETROL,
   SCRAPER_LIST_ITEM_EXPORT,
-  SCRAPER_LIST_ITEM_REALESTATE,
+  SCRAPER_LIST_ITEM_REALESTATE_I,
+  SCRAPER_LIST_ITEM_REALESTATE_II,
   SCRAPER_LIST_ITEM_COMMERCE,
   SCRAPER_LIST_ITEM_FINANCE,
   SCRAPER_LIST_ITEM_OTHES,
@@ -75,7 +76,14 @@ const getListScraperVietstock = (type) => {
         };
       });
     case SCRAPER_TYPE_STOCKS.REALESTATE_I:
-      return SCRAPER_LIST_ITEM_REALESTATE.map((item) => {
+      return SCRAPER_LIST_ITEM_REALESTATE_I.map((item) => {
+        return {
+          symbolStock: item,
+          urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
+        };
+      });
+    case SCRAPER_TYPE_STOCKS.REALESTATE_II:
+      return SCRAPER_LIST_ITEM_REALESTATE_II.map((item) => {
         return {
           symbolStock: item,
           urlSite: `https://finance.vietstock.vn/${item.toUpperCase()}/ho-so-doanh-nghiep.htm`,
@@ -140,6 +148,8 @@ const getURLExportCSV = (type) => {
       return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.EXPORT}.csv`;
     case SCRAPER_TYPE_STOCKS.REALESTATE_I:
       return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.REALESTATE_I}.csv`;
+    case SCRAPER_TYPE_STOCKS.REALESTATE_II:
+      return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.REALESTATE_II}.csv`;
     case SCRAPER_TYPE_STOCKS.COMMERCE:
       return `src/data/vietstock-${SCRAPER_TYPE_STOCKS.COMMERCE}.csv`;
     case SCRAPER_TYPE_STOCKS.FINANCE:
