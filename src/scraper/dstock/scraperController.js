@@ -9,7 +9,7 @@ const {
   getURLExportCSV,
 } = require("../../utils/dstock/commons");
 
-const type = SCRAPER_TYPE_STOCKS.OTHERS;
+const type = SCRAPER_TYPE_STOCKS.FINANCE;
 
 const scraperController = async () => {
   try {

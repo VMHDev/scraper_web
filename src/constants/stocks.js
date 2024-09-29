@@ -76,6 +76,9 @@ const SCRAPER_LIST_ITEM_FINANCE = [
   "MIG",
   "BMI",
   "BVH",
+  "PVI",
+  "-2-",
+  "EVF",
 ];
 
 const SCRAPER_LIST_ITEM_LOGISTIC = [
