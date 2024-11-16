@@ -19,17 +19,30 @@ const SCRAPER_TYPE_STOCKS = {
 const SCRAPER_LIST_ITEM_TEST = ["BVS"];
 
 const SCRAPER_LIST_ITEM_INVESTED = [
-  "BCM",
-  "VRE",
-  "VIC",
-  "EIB",
-  "TPB",
+  "ACB",
+  "SSB",
   "TCB",
+  "TPB",
+  "VIB",
   "VND",
-  "VCG",
-  "HDG",
+  "EVF",
   "VSC",
+  "HDG",
+  "PC1",
+  "PVD",
   "HPG",
+  "VCG",
+  "KDH",
+  "VIC",
+  "VRE",
+  "BCM",
+  "SSI",
+  "HCM",
+  "MBS",
+  "VCI",
+  "VIX",
+  "SHS",
+  "FTS",
 ];
 
 const SCRAPER_LIST_ITEM_BANK = [
