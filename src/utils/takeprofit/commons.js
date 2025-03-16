@@ -16,6 +16,7 @@ const {
 } = require("../../constants/stocks");
 
 const getListScraperTakeProfit = (type) => {
+  const dateNow = new Date().getTime();
   switch (type) {
     case SCRAPER_TYPE_STOCKS.TEST:
       return SCRAPER_LIST_ITEM_TEST.map((item) => {
@@ -23,7 +24,7 @@ const getListScraperTakeProfit = (type) => {
           symbolStock: item,
           urlSite: `https://takeprofit.vn/phan-tich-co-phieu/tong-quan-co-phieu?ticker=${item.toUpperCase()}`,
           pathJson: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.TEST}-${item}.json`,
-          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.TEST}-${item}.csv`,
+          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.TEST}-${item}-${dateNow}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.INVESTED:
@@ -32,7 +33,7 @@ const getListScraperTakeProfit = (type) => {
           symbolStock: item,
           urlSite: `https://takeprofit.vn/phan-tich-co-phieu/tong-quan-co-phieu?ticker=${item.toUpperCase()}`,
           pathJson: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.INVESTED}-${item}.json`,
-          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.INVESTED}-${item}.csv`,
+          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.INVESTED}-${item}-${dateNow}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.BANK:
@@ -41,7 +42,7 @@ const getListScraperTakeProfit = (type) => {
           symbolStock: item,
           urlSite: `https://takeprofit.vn/phan-tich-co-phieu/tong-quan-co-phieu?ticker=${item.toUpperCase()}`,
           pathJson: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.BANK}-${item}.json`,
-          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.BANK}-${item}.csv`,
+          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.BANK}-${item}-${dateNow}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.FINANCE:
@@ -50,7 +51,7 @@ const getListScraperTakeProfit = (type) => {
           symbolStock: item,
           urlSite: `https://takeprofit.vn/phan-tich-co-phieu/tong-quan-co-phieu?ticker=${item.toUpperCase()}`,
           pathJson: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.FINANCE}-${item}.json`,
-          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.FINANCE}-${item}.csv`,
+          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.FINANCE}-${item}-${dateNow}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.LOGISTIC:
@@ -59,7 +60,7 @@ const getListScraperTakeProfit = (type) => {
           symbolStock: item,
           urlSite: `https://takeprofit.vn/phan-tich-co-phieu/tong-quan-co-phieu?ticker=${item.toUpperCase()}`,
           pathJson: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.LOGISTIC}-${item}.json`,
-          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.LOGISTIC}-${item}.csv`,
+          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.LOGISTIC}-${item}-${dateNow}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.ELECTRICAL:
@@ -68,7 +69,7 @@ const getListScraperTakeProfit = (type) => {
           symbolStock: item,
           urlSite: `https://takeprofit.vn/phan-tich-co-phieu/tong-quan-co-phieu?ticker=${item.toUpperCase()}`,
           pathJson: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.ELECTRICAL}-${item}.json`,
-          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.ELECTRICAL}-${item}.csv`,
+          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.ELECTRICAL}-${item}-${dateNow}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.AGRICULTURE:
@@ -77,7 +78,7 @@ const getListScraperTakeProfit = (type) => {
           symbolStock: item,
           urlSite: `https://takeprofit.vn/phan-tich-co-phieu/tong-quan-co-phieu?ticker=${item.toUpperCase()}`,
           pathJson: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.AGRICULTURE}-${item}.json`,
-          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.AGRICULTURE}-${item}.csv`,
+          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.AGRICULTURE}-${item}-${dateNow}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.PETROL:
@@ -86,7 +87,7 @@ const getListScraperTakeProfit = (type) => {
           symbolStock: item,
           urlSite: `https://takeprofit.vn/phan-tich-co-phieu/tong-quan-co-phieu?ticker=${item.toUpperCase()}`,
           pathJson: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.PETROL}-${item}.json`,
-          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.PETROL}-${item}.csv`,
+          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.PETROL}-${item}-${dateNow}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.EXPORT:
@@ -95,7 +96,7 @@ const getListScraperTakeProfit = (type) => {
           symbolStock: item,
           urlSite: `https://takeprofit.vn/phan-tich-co-phieu/tong-quan-co-phieu?ticker=${item.toUpperCase()}`,
           pathJson: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.EXPORT}-${item}.json`,
-          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.EXPORT}-${item}.csv`,
+          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.EXPORT}-${item}-${dateNow}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.REALESTATE_I:
@@ -104,7 +105,7 @@ const getListScraperTakeProfit = (type) => {
           symbolStock: item,
           urlSite: `https://takeprofit.vn/phan-tich-co-phieu/tong-quan-co-phieu?ticker=${item.toUpperCase()}`,
           pathJson: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.REALESTATE_I}-${item}.json`,
-          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.REALESTATE_I}-${item}.csv`,
+          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.REALESTATE_I}-${item}-${dateNow}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.REALESTATE_II:
@@ -113,7 +114,7 @@ const getListScraperTakeProfit = (type) => {
           symbolStock: item,
           urlSite: `https://takeprofit.vn/phan-tich-co-phieu/tong-quan-co-phieu?ticker=${item.toUpperCase()}`,
           pathJson: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.REALESTATE_II}-${item}.json`,
-          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.REALESTATE_II}-${item}.csv`,
+          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.REALESTATE_II}-${item}-${dateNow}.csv`,
         };
       });
     case SCRAPER_TYPE_STOCKS.COMMERCE:
@@ -122,7 +123,7 @@ const getListScraperTakeProfit = (type) => {
           symbolStock: item,
           urlSite: `https://takeprofit.vn/phan-tich-co-phieu/tong-quan-co-phieu?ticker=${item.toUpperCase()}`,
           pathJson: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.COMMERCE}-${item}.json`,
-          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.COMMERCE}-${item}.csv`,
+          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.COMMERCE}-${item}-${dateNow}.csv`,
         };
       });
     default:
@@ -131,7 +132,7 @@ const getListScraperTakeProfit = (type) => {
           symbolStock: item,
           urlSite: `https://takeprofit.vn/phan-tich-co-phieu/tong-quan-co-phieu?ticker=${item.toUpperCase()}`,
           pathJson: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.OTHERS}-${item}.json`,
-          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.OTHERS}-${item}.csv`,
+          pathCSV: `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.OTHERS}-${item}-${dateNow}.csv`,
         };
       });
       break;
@@ -139,33 +140,34 @@ const getListScraperTakeProfit = (type) => {
 };
 
 const getURLExportCSV = (type) => {
+  const dateNow = new Date().getTime();
   switch (type) {
     case SCRAPER_TYPE_STOCKS.TEST:
-      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.TEST}.csv`;
+      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.TEST}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.INVESTED:
-      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.INVESTED}.csv`;
+      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.INVESTED}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.BANK:
-      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.BANK}.csv`;
+      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.BANK}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.LOGISTIC:
-      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.LOGISTIC}.csv`;
+      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.LOGISTIC}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.ELECTRICAL:
-      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.ELECTRICAL}.csv`;
+      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.ELECTRICAL}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.AGRICULTURE:
-      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.AGRICULTURE}.csv`;
+      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.AGRICULTURE}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.PETROL:
-      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.PETROL}.csv`;
+      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.PETROL}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.EXPORT:
-      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.EXPORT}.csv`;
+      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.EXPORT}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.REALESTATE_I:
-      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.REALESTATE_I}.csv`;
+      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.REALESTATE_I}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.REALESTATE_II:
-      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.REALESTATE_II}.csv`;
+      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.REALESTATE_II}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.COMMERCE:
-      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.COMMERCE}.csv`;
+      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.COMMERCE}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.FINANCE:
-      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.FINANCE}.csv`;
+      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.FINANCE}-${dateNow}.csv`;
     default:
-      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.OTHERS}.csv`;
+      return `src/data/takeprofit-${SCRAPER_TYPE_STOCKS.OTHERS}-${dateNow}.csv`;
       break;
   }
 };

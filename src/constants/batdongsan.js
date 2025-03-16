@@ -13,42 +13,44 @@ const SCRAPER_LIST_PAGE = [
   // {
   //   urlSite: `https://batdongsan.com.vn/ban-can-ho-chung-cu-${SCRAPER_LIST_ITEM.opalRiverside}?sortValue=1`,
   //   pathJson: `src/data/batdongsan-${SCRAPER_LIST_ITEM.opalRiverside}.json`,
-  //   pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.opalRiverside}.csv`,
+  //   pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.opalRiverside}-${new Date().getTime()}.csv`,
   // },
   // {
   //   urlSite: `https://batdongsan.com.vn/ban-can-ho-chung-cu-${SCRAPER_LIST_ITEM.opalGarden}?sortValue=1`,
   //   pathJson: `src/data/batdongsan-${SCRAPER_LIST_ITEM.opalGarden}.json`,
-  //   pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.opalGarden}.csv`,
+  //   pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.opalGarden}-${new Date().getTime()}.csv`,
   // },
   // {
   //   urlSite: `https://batdongsan.com.vn/ban-can-ho-chung-cu-${SCRAPER_LIST_ITEM.opalBoulevard}?sortValue=1`,
   //   pathJson: `src/data/batdongsan-${SCRAPER_LIST_ITEM.opalBoulevard}.json`,
-  //   pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.opalBoulevard}.csv`,
+  //   pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.opalBoulevard}-${new Date().getTime()}.csv`,
   // },
   {
     urlSite: `https://batdongsan.com.vn/ban-can-ho-chung-cu-${SCRAPER_LIST_ITEM.floraNovia}?sortValue=1`,
     pathJson: `src/data/batdongsan-${SCRAPER_LIST_ITEM.floraNovia}.json`,
-    pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.floraNovia}.csv`,
+    pathCSV: `src/data/batdongsan-${
+      SCRAPER_LIST_ITEM.floraNovia
+    }-${new Date().getTime()}.csv`,
   },
   // {
   //   urlSite: `https://batdongsan.com.vn/ban-can-ho-chung-cu-${SCRAPER_LIST_ITEM.prosperPlaza}?sortValue=1`,
   //   pathJson: `src/data/batdongsan-${SCRAPER_LIST_ITEM.prosperPlaza}.json`,
-  //   pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.prosperPlaza}.csv`,
+  //   pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.prosperPlaza}-${new Date().getTime()}.csv`,
   // },
   // {
   //   urlSite: `https://batdongsan.com.vn/ban-can-ho-chung-cu-can-ho-${SCRAPER_LIST_ITEM.eightxplus}?sortValue=1`,
   //   pathJson: `src/data/batdongsan-${SCRAPER_LIST_ITEM.eightxplus}.json`,
-  //   pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.eightxplus}.csv`,
+  //   pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.eightxplus}-${new Date().getTime()}.csv`,
   // },
   // {
   //   urlSite: `https://batdongsan.com.vn/ban-can-ho-chung-cu-${SCRAPER_LIST_ITEM.lavitaCharm}?sortValue=1`,
   //   pathJson: `src/data/batdongsan-${SCRAPER_LIST_ITEM.lavitaCharm}.json`,
-  //   pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.lavitaCharm}.csv`,
+  //   pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.lavitaCharm}-${new Date().getTime()}.csv`,
   // },
   // {
   //   urlSite: `https://batdongsan.com.vn/ban-can-ho-chung-cu-${SCRAPER_LIST_ITEM.lavitaGarden}?sortValue=1`,
   //   pathJson: `src/data/batdongsan-${SCRAPER_LIST_ITEM.lavitaGarden}.json`,
-  //   pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.lavitaGarden}.csv`,
+  //   pathCSV: `src/data/batdongsan-${SCRAPER_LIST_ITEM.lavitaGarden}-${new Date().getTime()}.csv`,
   // },
 ];
 

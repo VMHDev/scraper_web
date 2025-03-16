@@ -11,7 +11,8 @@ const scraperDStock = (browser, url, symbol) =>
       symbol === "-5-" ||
       symbol === "-6-" ||
       symbol === "-7-" ||
-      symbol === "-8-"
+      symbol === "-8-" ||
+      symbol === "-9-"
     ) {
       dataScraper.dRating = "";
       dataScraper.dSector = "";

@@ -113,33 +113,34 @@ const getListScraperDStock = (type) => {
 };
 
 const getURLExportCSV = (type) => {
+  const dateNow = new Date().getTime();
   switch (type) {
     case SCRAPER_TYPE_STOCKS.TEST:
-      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.TEST}.csv`;
+      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.TEST}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.INVESTED:
-      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.INVESTED}.csv`;
+      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.INVESTED}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.BANK:
-      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.BANK}.csv`;
+      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.BANK}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.FINANCE:
-      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.FINANCE}.csv`;
+      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.FINANCE}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.LOGISTIC:
-      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.LOGISTIC}.csv`;
+      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.LOGISTIC}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.ELECTRICAL:
-      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.ELECTRICAL}.csv`;
+      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.ELECTRICAL}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.AGRICULTURE:
-      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.AGRICULTURE}.csv`;
+      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.AGRICULTURE}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.PETROL:
-      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.PETROL}.csv`;
+      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.PETROL}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.EXPORT:
-      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.EXPORT}.csv`;
+      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.EXPORT}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.REALESTATE_I:
-      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.REALESTATE_I}.csv`;
+      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.REALESTATE_I}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.REALESTATE_II:
-      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.REALESTATE_II}.csv`;
+      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.REALESTATE_II}-${dateNow}.csv`;
     case SCRAPER_TYPE_STOCKS.COMMERCE:
-      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.COMMERCE}.csv`;
+      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.COMMERCE}-${dateNow}.csv`;
     default:
-      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.OTHERS}.csv`;
+      return `src/data/dstock-${SCRAPER_TYPE_STOCKS.OTHERS}-${dateNow}.csv`;
       break;
   }
 };
