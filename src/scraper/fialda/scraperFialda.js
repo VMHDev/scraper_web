@@ -9,6 +9,7 @@ const scraperFialda = (browser, url, symbol) =>
     };
 
     if (
+      symbol === "-0-" ||
       symbol === "-1-" ||
       symbol === "-2-" ||
       symbol === "-3-" ||

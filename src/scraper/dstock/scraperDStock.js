@@ -4,6 +4,7 @@ const scraperDStock = (browser, url, symbol) =>
     let isHasError = false;
 
     if (
+      symbol === "-0-" ||
       symbol === "-1-" ||
       symbol === "-2-" ||
       symbol === "-3-" ||

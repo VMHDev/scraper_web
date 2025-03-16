@@ -3,6 +3,7 @@ const scraperTakeProfit = (browser, url, symbol) =>
     let dataScraper = {};
 
     if (
+      symbol === "-0-" ||
       symbol === "-1-" ||
       symbol === "-2-" ||
       symbol === "-3-" ||
