@@ -13,10 +13,11 @@ const {
 const type = SCRAPER_TYPE_STOCKS.INVESTED;
 
 const scraperController = async () => {
+  var dataSummary = [];
   try {
     const lstPageScraper = getListScraperFialda(type);
     // Scraper price fialda
-    var dataSummary = [];
+
     for (const itemPage of lstPageScraper) {
       // Open browser
       let browser = await startBrowser();
@@ -45,27 +46,27 @@ const scraperController = async () => {
       await browser.close();
       console.log(">> Trình duyệt đã đóng...");
     }
-
-    console.log("dataSummary", dataSummary);
-
-    // Write file csv
-    const urlExportCSV = getURLExportCSV(type);
-    const directoryPath = path.dirname(urlExportCSV);
-    if (!fs.existsSync(directoryPath)) {
-      // If it doesn't exist, create the directory
-      fs.mkdirSync(directoryPath);
-
-      console.log(`Directory '${directoryPath}' created.`);
-    } else {
-      console.log(`Directory '${directoryPath}' already exists.`);
-    }
-    const csvResult = await converter.json2csv(dataSummary);
-    fs.writeFileSync(urlExportCSV, csvResult, (err) => {
-      if (err) console.log("Write data failed: " + err);
-      console.log("Write success");
-    });
   } catch (error) {
     console.log("Controller failed: " + error);
   }
+
+  console.log("dataSummary", dataSummary);
+
+  // Write file csv
+  const urlExportCSV = getURLExportCSV(type);
+  const directoryPath = path.dirname(urlExportCSV);
+  if (!fs.existsSync(directoryPath)) {
+    // If it doesn't exist, create the directory
+    fs.mkdirSync(directoryPath);
+
+    console.log(`Directory '${directoryPath}' created.`);
+  } else {
+    console.log(`Directory '${directoryPath}' already exists.`);
+  }
+  const csvResult = await converter.json2csv(dataSummary);
+  fs.writeFileSync(urlExportCSV, csvResult, (err) => {
+    if (err) console.log("Write data failed: " + err);
+    console.log("Write success");
+  });
 };
 module.exports = scraperController;

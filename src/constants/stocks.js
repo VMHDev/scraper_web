@@ -20,6 +20,7 @@ const SCRAPER_LIST_ITEM_TEST = ["BVS"];
 
 const SCRAPER_LIST_ITEM_INVESTED = [
   // "ACB",
+  // "BID",
   // "CTG",
   // "HDB",
   // "LPB",
