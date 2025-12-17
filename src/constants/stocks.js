@@ -40,6 +40,7 @@ const SCRAPER_LIST_ITEM_INVESTED = [
   "SHS",
   "SSI",
   "TCX",
+  "VCK",
   "VCI",
   "VIX",
   "VND",
