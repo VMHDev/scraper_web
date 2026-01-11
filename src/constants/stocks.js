@@ -128,27 +128,29 @@ const SCRAPER_LIST_ITEM_BANK = [
 ];
 
 const SCRAPER_LIST_ITEM_FINANCE = [
-  "SSI",
-  "VND",
+  "FTS",
   "HCM",
   "MBS",
+  "SHS",
+  "SSI",
+  "TCX",
+  "VCK",
   "VCI",
+  "VIX",
+  "VND",
+  "-1-",
   "ORS",
   "CTS",
   "BVS",
-  "SHS",
   "TCI",
   "BSI",
   "VDS",
-  "FTS",
-  "VIX",
-  "-1-",
+  "VPX",
+  "-2-",
   "MIG",
   "BMI",
   "BVH",
   "PVI",
-  "-2-",
-  "EVF",
 ];
 
 const SCRAPER_LIST_ITEM_LOGISTIC = [
