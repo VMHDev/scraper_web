@@ -26,7 +26,7 @@ const scraperController = async () => {
       const dataInfo = await scraperFialda(
         browser,
         itemPage.urlSite,
-        itemPage.symbolStock
+        itemPage.symbolStock,
       );
       console.log("dataInfo", dataInfo);
 
