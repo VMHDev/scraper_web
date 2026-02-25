@@ -107,6 +107,87 @@ const processingData = (dataInfo) => {
   }
 
   /////////////////////////////////////////////////
+  const fs = dataInfo?.financialStocks;
+  const parseChange = (str) => {
+    if (!str) return { value: "", percent: "" };
+    const match = str.match(/^(.+?)\s*\((.+?)\)$/);
+    return match
+      ? { value: match[1].trim(), percent: match[2].trim() }
+      : { value: str, percent: "" };
+  };
+  const priceChange = parseChange(fs?.priceInfo?.change);
+  const fsFields = [
+    // priceInfo
+    { id: 7, title: "Price", value: fs?.priceInfo?.price ?? "" },
+    { id: 8, title: "Price Change", value: priceChange.value },
+    { id: 9, title: "Price Change %", value: priceChange.percent },
+    { id: 10, title: "Trade Date", value: fs?.priceInfo?.tradeDate ?? "" },
+    {
+      id: 11,
+      title: "Trading Status",
+      value: fs?.priceInfo?.tradingStatus ?? "",
+    },
+    // basicInfo
+    { id: 12, title: "Open Price", value: fs?.basicInfo?.openPrice ?? "" },
+    {
+      id: 13,
+      title: "Highest Price",
+      value: fs?.basicInfo?.highestPrice ?? "",
+    },
+    { id: 14, title: "Lowest Price", value: fs?.basicInfo?.lowestPrice ?? "" },
+    {
+      id: 15,
+      title: "Trading Volume",
+      value: fs?.basicInfo?.tradingVolume ?? "",
+    },
+    { id: 16, title: "Market Cap", value: fs?.basicInfo?.marketCap ?? "" },
+    // tradingInfo
+    {
+      id: 17,
+      title: "Buying Volume",
+      value: fs?.tradingInfo?.buyingVolume ?? "",
+    },
+    {
+      id: 18,
+      title: "Selling Volume",
+      value: fs?.tradingInfo?.sellingVolume ?? "",
+    },
+    { id: 19, title: "Price Current", value: fs?.priceInfo?.price ?? "" },
+    { id: 20, title: "High 52W", value: fs?.tradingInfo?.high52Week ?? "" },
+    { id: 21, title: "Low 52W", value: fs?.tradingInfo?.low52Week ?? "" },
+    {
+      id: 22,
+      title: "Avg Volume 52W",
+      value: fs?.tradingInfo?.avgVolume52Week ?? "",
+    },
+    // foreignInfo
+    { id: 23, title: "Foreign Buy", value: fs?.foreignInfo?.foreignBuy ?? "" },
+    {
+      id: 24,
+      title: "Foreign Ownership",
+      value: fs?.foreignInfo?.foreignOwnership ?? "",
+    },
+    {
+      id: 25,
+      title: "Cash Dividend",
+      value: fs?.foreignInfo?.cashDividend ?? "",
+    },
+    {
+      id: 26,
+      title: "Dividend Yield",
+      value: fs?.foreignInfo?.dividendYield ?? "",
+    },
+    { id: 27, title: "Beta", value: fs?.foreignInfo?.beta ?? "" },
+    // financialRatios
+    { id: 28, title: "EPS", value: fs?.financialRatios?.eps ?? "" },
+    { id: 29, title: "P/E", value: fs?.financialRatios?.pe ?? "" },
+    { id: 30, title: "F P/E", value: fs?.financialRatios?.fpe ?? "" },
+    { id: 31, title: "BVPS", value: fs?.financialRatios?.bvps ?? "" },
+    { id: 32, title: "P/B", value: fs?.financialRatios?.pb ?? "" },
+  ];
+  fsFields.forEach((field) => dataScraper.push(field));
+
+  /////////////////////////////////////////////////
 
   // Sort
   const dataSort = dataScraper.sort((a, b) => a.id - b.id);
