@@ -10,7 +10,7 @@ const {
   getURLExportCSV,
 } = require("../../utils/fialda/commons");
 
-const type = SCRAPER_TYPE_STOCKS.INVESTED;
+const type = SCRAPER_TYPE_STOCKS.TEST; // INVESTED
 
 const scraperController = async () => {
   var dataSummary = [];
