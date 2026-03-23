@@ -22,15 +22,18 @@ const SCRAPER_LIST_ITEM_TEST = [
   "DGC",
   "DXG",
   "FPT",
+  "HCM",
   "KDH",
   "MBB",
   "NLG",
   "SSI",
   "TCB",
+  "TCM",
   "VCB",
   "VCG",
   "VCI",
   "VCK",
+  "VND",
 ];
 
 const SCRAPER_LIST_ITEM_INVESTED = [
