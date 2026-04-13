@@ -20,7 +20,6 @@ const SCRAPER_LIST_ITEM_TEST = [
   "ACB",
   "DBC",
   "DGC",
-  "DXG",
   "FPT",
   "KDH",
   "MBB",
