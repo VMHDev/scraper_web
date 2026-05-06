@@ -21,6 +21,7 @@ const SCRAPER_LIST_ITEM_TEST = [
   "DBC",
   "DGC",
   "FPT",
+  "HDG",
   "KDH",
   "MBB",
   "NLG",
