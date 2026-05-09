@@ -9,8 +9,8 @@ const processingData = (dataInfo) => {
       dataInfo?.scoreTP === ""
         ? ""
         : dataInfo?.scoreTP !== "/10"
-        ? `=${dataInfo?.scoreTP}`
-        : `---`,
+          ? `=${dataInfo?.scoreTP}`
+          : `---`,
   });
   /////////////////////////////////////////////////
 
@@ -22,8 +22,8 @@ const processingData = (dataInfo) => {
       dataInfo?.scoreF === ""
         ? ""
         : dataInfo?.scoreF !== "/10"
-        ? `=${dataInfo?.scoreF}`
-        : `---`,
+          ? `=${dataInfo?.scoreF}`
+          : `---`,
   });
   /////////////////////////////////////////////////
 

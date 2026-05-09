@@ -9,8 +9,8 @@ const processingData = (dataInfo) => {
       dataInfo?.dRating === ""
         ? ""
         : dataInfo?.dRating
-        ? `=${dataInfo?.dRating}/10`
-        : `---`,
+          ? `=${dataInfo?.dRating}/10`
+          : `---`,
   });
   /////////////////////////////////////////////////
 
@@ -22,8 +22,8 @@ const processingData = (dataInfo) => {
       dataInfo?.dRating === "" || dataInfo?.dSector === ""
         ? ""
         : dataInfo?.dRating > dataInfo?.dSector
-        ? "x"
-        : `---`,
+          ? "x"
+          : `---`,
   });
   /////////////////////////////////////////////////
 

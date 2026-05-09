@@ -25,16 +25,16 @@ const scraperPrice = (browser, url) =>
               title: el.querySelector("a")?.title,
               link: el.querySelector("a")?.href,
               price: el.querySelector(
-                "a > div.re__card-info > div.re__card-info-content > div > div.re__card-config.js__card-config > span.re__card-config-price.js__card-config-item"
+                "a > div.re__card-info > div.re__card-info-content > div > div.re__card-config.js__card-config > span.re__card-config-price.js__card-config-item",
               )?.innerText,
               area: el.querySelector(
-                "a > div.re__card-info > div.re__card-info-content > div > div.re__card-config.js__card-config > span.re__card-config-area.js__card-config-item"
+                "a > div.re__card-info > div.re__card-info-content > div > div.re__card-config.js__card-config > span.re__card-config-area.js__card-config-item",
               )?.innerText,
               pricePerM2: el.querySelector(
-                "a > div.re__card-info > div.re__card-info-content > div > div.re__card-config.js__card-config > span.re__card-config-price_per_m2.js__card-config-item"
+                "a > div.re__card-info > div.re__card-info-content > div > div.re__card-config.js__card-config > span.re__card-config-price_per_m2.js__card-config-item",
               )?.innerText,
               date: el.querySelector(
-                "a > div.re__card-info > div.re__card-contact > div.re__card-published-info > div > span"
+                "a > div.re__card-info > div.re__card-contact > div.re__card-published-info > div > span",
               )?.innerText,
             };
           });

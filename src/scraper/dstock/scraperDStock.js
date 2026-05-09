@@ -48,7 +48,7 @@ const scraperDStock = (browser, url, symbol) =>
               dRating: el.querySelector("td:nth-child(2)")?.innerText || "---",
               dSector: el.querySelector("td:nth-child(3)")?.innerText || "---",
             };
-          }
+          },
         )
         .catch((err) => {
           console.log("Error Scraper >>> ", JSON.stringify(err));

@@ -171,12 +171,14 @@ const SCRAPER_LIST_ITEM_FINANCE = [
 
 const SCRAPER_LIST_ITEM_LOGISTIC = [
   "ACV",
+  "GMD",
+  "HAH",
+  "VSC",
+  "-1-",
   "SCS",
   "NCT",
-  "-1-",
+  "-2-",
   "DVP",
-  "VOS",
-  "GMD",
   "STG",
   "TMS",
   "DXP",
@@ -184,6 +186,7 @@ const SCRAPER_LIST_ITEM_LOGISTIC = [
   "PHP",
   "GSP",
   "PDV",
+  "VOS",
   "-2-",
   "HVN",
   "VJC",
@@ -193,29 +196,29 @@ const SCRAPER_LIST_ITEM_LOGISTIC = [
 ];
 
 const SCRAPER_LIST_ITEM_ELECTRICAL = [
-  "BCG",
-  "GEG",
-  "HDG",
+  "GEX",
   "PC1",
   "REE",
+  "-1-",
+  "BCG",
+  "GEG",
   "TTA",
   "DDG",
-  "-1-",
+  "-2-",
   "HND",
   "PGV",
   "PPC",
   "QTP",
-  "-2-",
+  "-3-",
   "NT2",
   "POW",
-  "-3-",
+  "-4-",
   "CHP",
   "HNA",
   "TBC",
   "TMP",
   "VSH",
-  "-4-",
-  "GEX",
+  "-5-",
   "DQC",
   "KHP",
   "TV2",
@@ -258,34 +261,38 @@ const SCRAPER_LIST_ITEM_AGRICULTURE = [
 ];
 
 const SCRAPER_LIST_ITEM_PETROL = [
-  "PLX",
-  "PLC",
   "BSR",
+  "PLX",
   "PVD",
+  "PVT",
+  "-1-",
+  "PLC",
   "PVS",
   "GAS",
   "PVC",
   "OIL",
   "PSD",
-  "PET",
 ];
 
 const SCRAPER_LIST_ITEM_EXPORT = [
+  "ANV",
+  "FMC",
+  "MSH",
+  "TCM",
+  "VHC",
+  "-1-",
   "GIL",
   "ADS",
   "VGT",
   "TNG",
   "EVE",
   "STK",
-  "TCM",
-  "MSH",
   "HTG",
-  "-1-",
+  "-2-",
   "ASM",
   "IDI",
   "MPC",
   "CMX",
-  "FMC",
   "ACL",
 ];
 
@@ -315,16 +322,16 @@ const SCRAPER_LIST_ITEM_REALESTATE_I = [
   "-2-",
   "PTB",
   "ACG",
-];
-
-const SCRAPER_LIST_ITEM_REALESTATE_II = [
+  "-3-",
   "KSB",
   "VLB",
   "DHA",
-  "-1-",
+];
+
+const SCRAPER_LIST_ITEM_REALESTATE_II = [
   "BCC",
   "HT1",
-  "-2-",
+  "-1-",
   "HTN",
   "HBC",
   "DPG",
@@ -332,7 +339,7 @@ const SCRAPER_LIST_ITEM_REALESTATE_II = [
   "CSC",
   "FCN",
   "G36",
-  "-3-",
+  "-2-",
   "VPI",
   "AGG",
   "CRE",
@@ -346,7 +353,7 @@ const SCRAPER_LIST_ITEM_REALESTATE_II = [
   "CTR",
   "VIC",
   "VRE",
-  "-4-",
+  "-3-",
   "BCM",
   "VGC",
   "SZC",
@@ -355,7 +362,16 @@ const SCRAPER_LIST_ITEM_REALESTATE_II = [
   "LHG",
 ];
 
-const SCRAPER_LIST_ITEM_COMMERCE = ["DGW", "MSN", "MWG", "FRT", "PNJ"];
+const SCRAPER_LIST_ITEM_COMMERCE = [
+  "DGW",
+  "MSN",
+  "MWG",
+  "PNJ",
+  "FPT",
+  "-1-",
+  "FRT",
+  "PET",
+];
 
 const SCRAPER_LIST_ITEM_OTHES = [
   "FIT",
@@ -366,7 +382,6 @@ const SCRAPER_LIST_ITEM_OTHES = [
   "DVN",
   "DBD",
   "-1-",
-  "FPT",
   "SAM",
   "VTP",
   "FOX",
@@ -394,20 +409,19 @@ const SCRAPER_LIST_ITEM_OTHES = [
 
 const SCRAPER_LIST_ITEM_VN30 = [
   "ACB",
-  "BCM",
   "BID",
-  "BVH",
   "CTG",
+  "DGC",
   "FPT",
   "GAS",
   "GVR",
   "HDB",
   "HPG",
+  "LPB",
   "MBB",
   "MSN",
   "MWG",
   "PLX",
-  "POW",
   "SAB",
   "SHB",
   "SSB",
@@ -422,6 +436,7 @@ const SCRAPER_LIST_ITEM_VN30 = [
   "VJC",
   "VNM",
   "VPB",
+  "VPL",
   "VRE",
 ];
 

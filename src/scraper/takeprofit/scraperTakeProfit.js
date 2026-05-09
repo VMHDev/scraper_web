@@ -33,7 +33,7 @@ const scraperTakeProfit = (browser, url, symbol) =>
         "div[id$='panel-tong-quan-co-phieu'] > div:nth-child(2) > div:nth-child(1) > div > div > div:nth-child(1) > div > div.chart-wrapper__score-name",
         (el) => {
           return el.querySelector("span").innerText;
-        }
+        },
       );
       console.log("dataIndexStocks", JSON.stringify(dataTPScore));
       dataScraper.scoreTP = dataTPScore;
@@ -43,7 +43,7 @@ const scraperTakeProfit = (browser, url, symbol) =>
         "div[id$='panel-tong-quan-co-phieu'] > div:nth-child(2) > div:nth-child(1) > div > div > div:nth-child(1) > div > div.chart-wrapper__sub",
         (el) => {
           return el.querySelector("span:nth-child(2)").innerText;
-        }
+        },
       );
       console.log("dataPriceStocks", JSON.stringify(dataFScore));
       dataScraper.scoreF = dataFScore;

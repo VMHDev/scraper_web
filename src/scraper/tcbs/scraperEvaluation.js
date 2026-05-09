@@ -45,7 +45,7 @@ const scraperVietstock = (browser, url, symbol) =>
         "#tcAnalysis > div > div.mobile-header > div.info > app-analysis-mobile-stock-info > div > div.stock-info > div.exchange > div.rating > div",
         (el) => {
           return el?.innerText?.trim();
-        }
+        },
       );
       console.log("dataRating", JSON.stringify(dataRating));
       dataScraper.rating = dataRating;
@@ -55,7 +55,7 @@ const scraperVietstock = (browser, url, symbol) =>
         "#container > app-evaluation > div > div > div.evaluation-pin-bottom.result-avaible > app-analysis-evaluation-result > div > div.pull-right > div.col-item.col-result",
         (el) => {
           return el.querySelector("div:nth-child(1)").innerText;
-        }
+        },
       );
       console.log("dataValuation", JSON.stringify(dataValuation));
       dataScraper.valuation = dataValuation;
@@ -67,7 +67,7 @@ const scraperVietstock = (browser, url, symbol) =>
           "#container > app-evaluation > div > div > div.evaluation-body > div:nth-child(1) > div.method > div > app-analysis-evaluation-method-factor > div > div.method-content > div > mat-radio-group > div:nth-child(12) > div:nth-child(2)",
           (el) => {
             return el.querySelector("span").innerText;
-          }
+          },
         )
         .catch((err) => {
           console.log("Error Scraper ValuationPE >>> ", err);
@@ -82,7 +82,7 @@ const scraperVietstock = (browser, url, symbol) =>
           "#container > app-evaluation > div > div > div.evaluation-body > div:nth-child(1) > div.method > div > app-analysis-evaluation-method-factor > div > div.method-content > div > mat-radio-group > div:nth-child(12) > div:nth-child(3)",
           (el) => {
             return el.querySelector("span").innerText;
-          }
+          },
         )
         .catch((err) => {
           console.log("Error Scraper ValuationPB >>> ", err);
@@ -97,7 +97,7 @@ const scraperVietstock = (browser, url, symbol) =>
           "#container > app-evaluation > div > div > div.evaluation-body > div:nth-child(2) > div > div > app-analysis-evaluation-method-discount-cash-flow > div > div.method-content > div > div.method-row.method-row-bold.no-border > div.pull-right",
           (el) => {
             return el.querySelector("div").innerText;
-          }
+          },
         )
         .catch((err) => {
           console.log("Error Scraper ValuationDCF >>> ", err);

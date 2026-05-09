@@ -9,7 +9,7 @@ const { getListScraperFialda } = require("./../../utils/fialda/commons");
 const scraperController = async () => {
   try {
     const lstPageScraper = getListScraperFialda(
-      SCRAPER_TYPE_STOCKS.AGRICULTURE
+      SCRAPER_TYPE_STOCKS.AGRICULTURE,
     );
     // Scraper price fialda
     for (const itemPage of lstPageScraper) {
@@ -20,7 +20,7 @@ const scraperController = async () => {
       const dataInfo = await scraperFialda(
         browser,
         itemPage.urlSite,
-        itemPage.symbolStock
+        itemPage.symbolStock,
       );
       console.log("dataInfo", dataInfo);
 

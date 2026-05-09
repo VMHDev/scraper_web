@@ -22,7 +22,7 @@ const scraperController = async () => {
         const dataInfo = await scraperEvaluation(
           browser,
           itemPage.urlSite,
-          itemPage.symbolStock
+          itemPage.symbolStock,
         );
         console.log("dataInfo", dataInfo);
 

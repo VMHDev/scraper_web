@@ -25,7 +25,7 @@ const scraperController = async () => {
         const dataInfo = await scraperVietstock(
           browser,
           itemPage.urlSite,
-          itemPage.symbolStock
+          itemPage.symbolStock,
         );
         console.log("dataInfo", dataInfo);
 

@@ -35,14 +35,14 @@ const scraperFialda = (browser, url, symbol) =>
       //////////////////////////////////////////////////////////
       const dataIntro = await pageInfo.$eval(
         "div.card-header > div.list-quick-menu > div.scroll-bar-cus > div:nth-child(1) > ul.style-no2 > li.nav-item",
-        (el) => el.querySelector("a").innerText
+        (el) => el.querySelector("a").innerText,
       );
       dataScraper.intro = dataIntro;
 
       //////////////////////////////////////////////////////////
       const dataPrice = await pageInfo.$eval(
         "div[id^='top-'] > div.card-body > div.info-cp > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)",
-        (el) => el.querySelector("span:nth-child(1)").innerText
+        (el) => el.querySelector("span:nth-child(1)").innerText,
       );
       dataScraper.price = dataPrice;
 
@@ -74,7 +74,7 @@ const scraperFialda = (browser, url, symbol) =>
             }
           });
           return tmpDataOverview;
-        }
+        },
       );
       dataScraper.overview = dataOverview;
 
@@ -90,7 +90,7 @@ const scraperFialda = (browser, url, symbol) =>
             };
           });
           return tmpDataFinanceOne;
-        }
+        },
       );
       dataScraper.financeOne = dataFinanceOne;
 
@@ -106,7 +106,7 @@ const scraperFialda = (browser, url, symbol) =>
             };
           });
           return tmpDataFinanceTwo;
-        }
+        },
       );
       dataScraper.financeTwo = dataFinanceTwo;
 
