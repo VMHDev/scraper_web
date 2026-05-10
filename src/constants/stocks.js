@@ -112,7 +112,6 @@ const SCRAPER_LIST_ITEM_INVESTED = [
   "MSN",
   "MWG",
   "PNJ",
-  "-8-",
   "FPT",
 ];
 
