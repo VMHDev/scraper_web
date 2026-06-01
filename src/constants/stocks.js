@@ -25,6 +25,7 @@ const SCRAPER_LIST_ITEM_TEST = [
   "KDH",
   "MBB",
   "NLG",
+  "REE",
   "SSI",
   "TCB",
   "TCM",
