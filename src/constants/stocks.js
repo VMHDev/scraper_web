@@ -29,6 +29,7 @@ const SCRAPER_LIST_ITEM_TEST = [
   "SSI",
   "TCB",
   "TCM",
+  "TCX",
   "VCB",
   "VCG",
   "VCI",
