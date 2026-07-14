@@ -19,10 +19,13 @@ const SCRAPER_TYPE_STOCKS = {
 const SCRAPER_LIST_ITEM_TEST = [
   "ACB",
   "ACV",
+  "BCM",
   "DBC",
   "DGC",
   "FPT",
   "HDG",
+  "HPG",
+  "IDC",
   "KDH",
   "MBB",
   "NLG",
