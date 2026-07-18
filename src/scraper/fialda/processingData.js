@@ -43,12 +43,12 @@ const processingData = (dataInfo) => {
       } else if (idx === 7) {
         const arrPrice = item?.value.split(" - ");
         dataScraper.push({
-          id: 3,
+          id: 2,
           title: "Price 52W Min",
           value: arrPrice[0],
         });
         dataScraper.push({
-          id: 2,
+          id: 3,
           title: "Price 52W Max",
           value: arrPrice[1],
         });
