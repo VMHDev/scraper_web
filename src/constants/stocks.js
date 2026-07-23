@@ -96,6 +96,7 @@ const SCRAPER_LIST_ITEM_INVESTED = [
   "TCM",
   "VHC",
   "-6-",
+  "BCM",
   "CEO",
   "CII",
   "CTD",
