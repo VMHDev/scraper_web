@@ -127,11 +127,11 @@ const SCRAPER_LIST_ITEM_BANK = [
   "BID",
   "CTG",
   "HDB",
+  "KLB",
   "LPB",
   "MBB",
   "SHB",
   "STB",
-  "SSB",
   "TCB",
   "TPB",
   "VCB",
@@ -141,12 +141,12 @@ const SCRAPER_LIST_ITEM_BANK = [
   "ABB",
   "BVB",
   "EIB",
-  "KLB",
   "MSB",
   "OCB",
-  "VIB",
   "PGB",
+  "SSB",
   "VAB",
+  "VIB",
 ];
 
 const SCRAPER_LIST_ITEM_FINANCE = [
@@ -193,10 +193,10 @@ const SCRAPER_LIST_ITEM_LOGISTIC = [
   "GSP",
   "PDV",
   "VOS",
-  "-2-",
+  "-3-",
   "HVN",
   "VJC",
-  "-3-",
+  "-4-",
   "PVP",
   "VTO",
 ];
@@ -236,6 +236,7 @@ const SCRAPER_LIST_ITEM_AGRICULTURE = [
   "DCM",
   "DGC",
   "DPM",
+  "HPA",
   "GVR",
   "VNM",
   "-1-",
@@ -370,6 +371,7 @@ const SCRAPER_LIST_ITEM_REALESTATE_II = [
 
 const SCRAPER_LIST_ITEM_COMMERCE = [
   "DGW",
+  "MCH",
   "MSN",
   "MWG",
   "PNJ",
