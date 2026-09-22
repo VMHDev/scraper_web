@@ -1,3 +1,8 @@
+/**
+ * @file scraperControllerV2.js
+ * @description Fialda scraper v2: scrapes a whole stock group and exports a
+ * single pivoted CSV (rows = metrics, columns = stock symbols).
+ */
 const fs = require("fs");
 const path = require("path");
 const converter = require("json-2-csv");
@@ -10,8 +15,17 @@ const {
   getURLExportCSV,
 } = require("../../utils/fialda/commons");
 
+/** Stock group to scrape (see SCRAPER_TYPE_STOCKS). */
 const type = SCRAPER_TYPE_STOCKS.INVESTED; // INVESTED TEST
 
+/**
+ * Main controller (v2) for the fwt.fialda.com scraper.
+ * Scrapes every ticker of the configured group, merges results into a
+ * pivot table (`dataSummary`) where each row is a metric and each column a
+ * stock symbol, and writes it to a timestamped CSV (creating the output
+ * directory when missing).
+ * @returns {Promise<void>}
+ */
 const scraperController = async () => {
   var dataSummary = [];
   try {
@@ -34,6 +48,8 @@ const scraperController = async () => {
       const dataScraper = processingData(dataInfo);
       console.log("dataScraper", dataScraper);
 
+      // Pivot merge: keep one row per metric title and add the current
+      // symbol as a new column, preserving values scraped previously
       dataSummary = dataScraper.map((itemScraper, idx) => {
         return {
           title: itemScraper.title,

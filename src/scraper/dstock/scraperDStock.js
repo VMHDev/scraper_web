@@ -1,3 +1,22 @@
+/**
+ * @file scraperDStock.js
+ * @description Page-level scraper that extracts the D-Rating score and the
+ * sector average D-Rating from a dstock.vndirect.com.vn stock page.
+ */
+
+/**
+ * Scrapes D-Rating data for a single stock.
+ *
+ * Separator symbols ("-0-" ... "-9-") are not real tickers: they resolve
+ * immediately with empty values so the exported CSV keeps a blank column
+ * between industry groups.
+ *
+ * @param {import('puppeteer').Browser} browser - Shared browser instance.
+ * @param {string} url - URL of the stock's D-Rating page.
+ * @param {string} symbol - Stock ticker, or a "-N-" separator marker.
+ * @returns {Promise<{dRating: string, dSector: string}>} Scraped scores;
+ * empty strings when the page fails to load or has no rating data.
+ */
 const scraperDStock = (browser, url, symbol) =>
   new Promise(async (resolve, reject) => {
     let dataScraper = {};
@@ -15,6 +34,7 @@ const scraperDStock = (browser, url, symbol) =>
       symbol === "-8-" ||
       symbol === "-9-"
     ) {
+      // Separator row: skip scraping, emit an empty column
       dataScraper.dRating = "";
       dataScraper.dSector = "";
       resolve(dataScraper);
@@ -27,6 +47,7 @@ const scraperDStock = (browser, url, symbol) =>
       await pageInfo.goto(url);
       console.log(">> Accessing " + url);
 
+      // The Highcharts container signals that rating data has rendered
       await pageInfo.waitForSelector("div[id^='highcharts']").catch((err) => {
         console.log("Error Scraper >>> ", JSON.stringify(err));
         isHasError = true;
@@ -40,6 +61,8 @@ const scraperDStock = (browser, url, symbol) =>
       console.log(">> Page load done...");
 
       //////////////////////////////////////////////////////////
+      // Read the last row of the rating table: column 2 = stock D-Rating,
+      // column 3 = sector average D-Rating
       const dataDStock = await pageInfo
         .$eval(
           "#__next > div > div.page-container.theme-dark > div > div > div > div:nth-child(2) > div.drating-box > div.drating-box__left > div > div.box-item-container > div > div > table > tbody > tr:last-child",

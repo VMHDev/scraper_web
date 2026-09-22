@@ -1,3 +1,18 @@
+/**
+ * @file stocks.js
+ * @description Stock-related constants: stock-group identifiers and the
+ * ticker lists belonging to each group/industry.
+ *
+ * Note: the "-N-" entries inside the lists are visual separator rows.
+ * The scrapers detect them and emit empty values so the exported CSV
+ * keeps a blank column between industry groups.
+ */
+
+/**
+ * Enum of stock groups/industries that can be scraped.
+ * @readonly
+ * @enum {string}
+ */
 const SCRAPER_TYPE_STOCKS = {
   TEST: "test",
   INVESTED: "invested",
@@ -16,6 +31,10 @@ const SCRAPER_TYPE_STOCKS = {
   HNX30: "hnx30",
 };
 
+/**
+ * Tickers used for smoke-testing the scrapers.
+ * @type {string[]}
+ */
 const SCRAPER_LIST_ITEM_TEST = [
   "ACB",
   "ACV",
@@ -41,6 +60,11 @@ const SCRAPER_LIST_ITEM_TEST = [
   "VCK",
 ];
 
+/**
+ * Tickers of currently invested/followed stocks, grouped by industry.
+ * "-N-" entries are separator rows rendered as empty CSV columns.
+ * @type {string[]}
+ */
 const SCRAPER_LIST_ITEM_INVESTED = [
   "ACB",
   "BID",
@@ -122,6 +146,10 @@ const SCRAPER_LIST_ITEM_INVESTED = [
   "FPT",
 ];
 
+/**
+ * Banking industry tickers.
+ * @type {string[]}
+ */
 const SCRAPER_LIST_ITEM_BANK = [
   "ACB",
   "BID",
@@ -149,6 +177,10 @@ const SCRAPER_LIST_ITEM_BANK = [
   "VIB",
 ];
 
+/**
+ * Finance industry tickers (securities and insurance companies).
+ * @type {string[]}
+ */
 const SCRAPER_LIST_ITEM_FINANCE = [
   "FTS",
   "HCM",
@@ -175,6 +207,10 @@ const SCRAPER_LIST_ITEM_FINANCE = [
   "PVI",
 ];
 
+/**
+ * Logistics industry tickers (ports, shipping, airlines, transport).
+ * @type {string[]}
+ */
 const SCRAPER_LIST_ITEM_LOGISTIC = [
   "ACV",
   "GMD",
@@ -201,6 +237,10 @@ const SCRAPER_LIST_ITEM_LOGISTIC = [
   "VTO",
 ];
 
+/**
+ * Electrical/power industry tickers.
+ * @type {string[]}
+ */
 const SCRAPER_LIST_ITEM_ELECTRICAL = [
   "GEX",
   "PC1",
@@ -230,6 +270,10 @@ const SCRAPER_LIST_ITEM_ELECTRICAL = [
   "TV2",
 ];
 
+/**
+ * Agriculture and food industry tickers.
+ * @type {string[]}
+ */
 const SCRAPER_LIST_ITEM_AGRICULTURE = [
   "BAF",
   "DBC",
@@ -267,6 +311,10 @@ const SCRAPER_LIST_ITEM_AGRICULTURE = [
   "MCM",
 ];
 
+/**
+ * Oil & gas industry tickers.
+ * @type {string[]}
+ */
 const SCRAPER_LIST_ITEM_PETROL = [
   "BSR",
   "PLX",
@@ -281,6 +329,10 @@ const SCRAPER_LIST_ITEM_PETROL = [
   "PSD",
 ];
 
+/**
+ * Export-oriented industry tickers (seafood, textile, wood, etc.).
+ * @type {string[]}
+ */
 const SCRAPER_LIST_ITEM_EXPORT = [
   "ANV",
   "FMC",
@@ -303,6 +355,10 @@ const SCRAPER_LIST_ITEM_EXPORT = [
   "ACL",
 ];
 
+/**
+ * Real-estate and construction tickers, group 1 (with steel/materials).
+ * @type {string[]}
+ */
 const SCRAPER_LIST_ITEM_REALESTATE_I = [
   "CEO",
   "CII",
@@ -335,6 +391,10 @@ const SCRAPER_LIST_ITEM_REALESTATE_I = [
   "DHA",
 ];
 
+/**
+ * Real-estate and construction tickers, group 2 (with cement/infrastructure).
+ * @type {string[]}
+ */
 const SCRAPER_LIST_ITEM_REALESTATE_II = [
   "BCC",
   "HT1",
@@ -369,6 +429,10 @@ const SCRAPER_LIST_ITEM_REALESTATE_II = [
   "LHG",
 ];
 
+/**
+ * Commerce and retail industry tickers.
+ * @type {string[]}
+ */
 const SCRAPER_LIST_ITEM_COMMERCE = [
   "DGW",
   "MCH",
@@ -381,6 +445,10 @@ const SCRAPER_LIST_ITEM_COMMERCE = [
   "PET",
 ];
 
+/**
+ * Tickers of other industries not covered by the groups above.
+ * @type {string[]}
+ */
 const SCRAPER_LIST_ITEM_OTHES = [
   "FIT",
   "AMV",
@@ -415,6 +483,10 @@ const SCRAPER_LIST_ITEM_OTHES = [
   "SBT",
 ];
 
+/**
+ * Members of the VN30 index (30 largest HOSE stocks).
+ * @type {string[]}
+ */
 const SCRAPER_LIST_ITEM_VN30 = [
   "ACB",
   "BID",
@@ -448,6 +520,10 @@ const SCRAPER_LIST_ITEM_VN30 = [
   "VRE",
 ];
 
+/**
+ * Members of the HNX30 index (30 largest HNX stocks).
+ * @type {string[]}
+ */
 const SCRAPER_LIST_ITEM_HNX30 = [
   "BVS",
   "CAP",

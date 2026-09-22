@@ -1,3 +1,7 @@
+/**
+ * @file commons.js
+ * @description URL builders for the fwt.fialda.com scraper.
+ */
 const {
   SCRAPER_TYPE_STOCKS,
   SCRAPER_LIST_ITEM_TEST,
@@ -17,8 +21,17 @@ const {
   SCRAPER_LIST_ITEM_HNX30,
 } = require("../../constants/stocks");
 
+/**
+ * Builds the list of Fialda finance pages to scrape for a stock group.
+ * Each entry also carries the JSON snapshot path and the timestamped CSV
+ * path used by the (v1) one-stock-per-file controller.
+ * Every switch branch applies the same URL/path templates to its ticker list.
+ * @param {string} type - One of SCRAPER_TYPE_STOCKS.
+ * @returns {Array<{symbolStock: string, urlSite: string, pathJson: string, pathCSV: string}>}
+ */
 const getListScraperFialda = (type) => {
   const dateNow = new Date().getTime();
+  // Each case maps its ticker list to the site's per-stock URL template
   switch (type) {
     case SCRAPER_TYPE_STOCKS.TEST:
       return SCRAPER_LIST_ITEM_TEST.map((item) => {
@@ -158,6 +171,11 @@ const getListScraperFialda = (type) => {
   }
 };
 
+/**
+ * Returns the timestamped CSV export path for a stock group.
+ * @param {string} type - One of SCRAPER_TYPE_STOCKS.
+ * @returns {string} Path like `src/data/fialda-<type>-<timestamp>.csv`.
+ */
 const getURLExportCSV = (type) => {
   const dateNow = new Date().getTime();
   switch (type) {

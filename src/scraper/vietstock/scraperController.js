@@ -1,3 +1,9 @@
+/**
+ * @file scraperController.js
+ * @description Orchestrates scraping of company profiles from
+ * finance.vietstock.vn and exports one pivoted CSV per stock group
+ * (rows = metrics, columns = stock symbols).
+ */
 const fs = require("fs");
 const converter = require("json-2-csv");
 const startBrowser = require("../../configs/browser");
@@ -9,8 +15,17 @@ const {
   getURLExportCSV,
 } = require("../../utils/vietstock/commons");
 
+/** Stock group to scrape (see SCRAPER_TYPE_STOCKS). */
 const type = SCRAPER_TYPE_STOCKS.INVESTED;
 
+/**
+ * Main controller for the finance.vietstock.vn scraper.
+ * Scrapes every ticker of the configured group, merges results into a
+ * pivot table (`dataSummary`) where each row is a metric and each column a
+ * stock symbol, and writes it to a timestamped CSV.
+ * A failing ticker is skipped so the rest of the group still exports.
+ * @returns {Promise<void>}
+ */
 const scraperController = async () => {
   try {
     const lstPageScraper = getListScraperVietstock(type);
@@ -33,6 +48,8 @@ const scraperController = async () => {
         const dataScraper = processingData(dataInfo);
         console.log("dataScraper", JSON.stringify(dataScraper));
 
+        // Pivot merge: keep one row per metric title and add the current
+        // symbol as a new column, preserving values scraped previously
         dataSummary = dataScraper.map((itemScraper, idx) => {
           return {
             title: itemScraper.title,

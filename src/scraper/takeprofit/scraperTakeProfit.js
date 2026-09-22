@@ -1,3 +1,21 @@
+/**
+ * @file scraperTakeProfit.js
+ * @description Page-level scraper that extracts the TakeProfit score and
+ * F-Score from a takeprofit.vn stock overview page.
+ */
+
+/**
+ * Scrapes TakeProfit/F-Score data for a single stock.
+ *
+ * Separator symbols ("-0-" ... "-9-") are not real tickers: they resolve
+ * immediately with empty values so the exported CSV keeps a blank column
+ * between industry groups.
+ *
+ * @param {import('puppeteer').Browser} browser - Shared browser instance.
+ * @param {string} url - URL of the stock overview page.
+ * @param {string} symbol - Stock ticker, or a "-N-" separator marker.
+ * @returns {Promise<{scoreTP: string, scoreF: string}>} Scraped scores.
+ */
 const scraperTakeProfit = (browser, url, symbol) =>
   new Promise(async (resolve, reject) => {
     let dataScraper = {};
@@ -14,6 +32,7 @@ const scraperTakeProfit = (browser, url, symbol) =>
       symbol === "-8-" ||
       symbol === "-9-"
     ) {
+      // Separator row: skip scraping, emit an empty column
       dataScraper.scoreTP = "";
       dataScraper.scoreF = "";
       resolve(dataScraper);

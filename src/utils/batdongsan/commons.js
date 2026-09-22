@@ -1,6 +1,17 @@
+/**
+ * @file commons.js
+ * @description Date helpers for the batdongsan.com.vn scraper.
+ */
 const moment = require("moment");
 const { TYPE_DATE } = require("./../../constants/batdongsan");
 
+/**
+ * Converts a relative publish-date label (e.g. "Đăng hôm nay",
+ * "Đăng 1 tuần trước") into an absolute `YYYY/MM/DD` date.
+ * Unrecognized labels are returned unchanged.
+ * @param {string} date - Raw date label scraped from a listing card.
+ * @returns {string} Formatted date string, or the original value.
+ */
 const processDate = (date) => {
   switch (date) {
     case TYPE_DATE.TODAY:

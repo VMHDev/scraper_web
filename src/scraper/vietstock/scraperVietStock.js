@@ -1,5 +1,27 @@
+/**
+ * @file scraperVietStock.js
+ * @description Page-level scraper that extracts index membership flags,
+ * price/warning info, financial data and listing profile from a
+ * finance.vietstock.vn company profile page.
+ */
 const { delayRequest } = require("./../../utils/commons");
 
+/**
+ * Scrapes Vietstock company data for a single stock.
+ *
+ * Separator symbols ("-0-" ... "-9-") are not real tickers: they resolve
+ * immediately with null fields so the exported CSV keeps a blank column
+ * between industry groups.
+ *
+ * Most financial fields have no stable id, so they are located by matching
+ * their Vietnamese labels ("Vốn hóa", "Cao 52T", "EPS", ...) inside
+ * fixed-position layout columns - fragile if the site changes its layout.
+ *
+ * @param {import('puppeteer').Browser} browser - Shared browser instance.
+ * @param {string} url - URL of the company profile page.
+ * @param {string} symbol - Stock ticker, or a "-N-" separator marker.
+ * @returns {Promise<{indexStocks: Array|null, priceStocks: Object|null, financialStocks: Object|null, profileStocks: Array|null}>}
+ */
 const scraperVietstock = (browser, url, symbol) =>
   new Promise(async (resolve, reject) => {
     let dataScraper = {
@@ -22,6 +44,7 @@ const scraperVietstock = (browser, url, symbol) =>
       symbol === "-8-" ||
       symbol === "-9-"
     ) {
+      // Separator row: skip scraping, emit an empty column
       resolve(dataScraper);
       return;
     }
@@ -77,9 +100,16 @@ const scraperVietstock = (browser, url, symbol) =>
       dataScraper.priceStocks = dataPriceStocks;
 
       //////////////////////////////////////////////////////////
+      // Financial panels: fields with ids are read directly; the rest are
+      // matched by their Vietnamese labels inside fixed layout columns
       let dataFinancialStocks = null;
       try {
         dataFinancialStocks = await pageInfo.evaluate(() => {
+          /**
+           * Reads trimmed innerText of an element by id.
+           * @param {string} id - DOM element id.
+           * @returns {string} Element text, or "" when not found.
+           */
           const getTextById = (id) => {
             const el = document.getElementById(id);
             return el ? el.innerText.trim() : "";

@@ -1,3 +1,26 @@
+/**
+ * @file scraperEvaluation.js
+ * @description Page-level scraper that extracts rating and valuation data
+ * (overall, P/E, P/B, DCF) from a tcinvest.tcbs.com.vn evaluation page.
+ */
+
+/**
+ * Scrapes TCBS evaluation data for a single stock.
+ *
+ * Separator symbols ("-0-" ... "-9-") are not real tickers: they resolve
+ * immediately with null fields so the exported CSV keeps a blank column
+ * between industry groups.
+ *
+ * The site is an Angular app, so selectors target `app-*` components and
+ * `#evaluationPeChart` is used as the ready signal. Each valuation method
+ * is extracted individually with `.catch()` so a missing method does not
+ * fail the whole scrape.
+ *
+ * @param {import('puppeteer').Browser} browser - Shared browser instance.
+ * @param {string} url - URL of the stock evaluation page.
+ * @param {string} symbol - Stock ticker, or a "-N-" separator marker.
+ * @returns {Promise<{rating: string|null, valuation: string|null, valuationPE: string|null, valuationPB: string|null, valuationDCF: string|null}>}
+ */
 const scraperVietstock = (browser, url, symbol) =>
   new Promise(async (resolve, reject) => {
     let dataScraper = {
@@ -21,6 +44,7 @@ const scraperVietstock = (browser, url, symbol) =>
       symbol === "-8-" ||
       symbol === "-9-"
     ) {
+      // Separator row: skip scraping, emit an empty column
       resolve(dataScraper);
       return;
     }

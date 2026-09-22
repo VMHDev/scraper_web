@@ -1,3 +1,14 @@
+/**
+ * @file batdongsan.js
+ * @description Constants for the batdongsan.com.vn real-estate scraper:
+ * project slugs, target listing pages and relative publish-date labels.
+ */
+
+/**
+ * Slugs of the real-estate projects (apartment complexes) to scrape.
+ * Used to build listing URLs on batdongsan.com.vn.
+ * @type {Object<string, string>}
+ */
 const SCRAPER_LIST_ITEM = {
   opalRiverside: "opal-riverside",
   opalGarden: "opal-garden",
@@ -9,6 +20,12 @@ const SCRAPER_LIST_ITEM = {
   lavitaGarden: "lavita-garden",
 };
 
+/**
+ * Listing pages to scrape. Each entry holds the page URL and the output
+ * paths for the JSON snapshot and the timestamped CSV export.
+ * Commented-out entries are disabled projects kept for easy re-enabling.
+ * @type {Array<{urlSite: string, pathJson: string, pathCSV: string}>}
+ */
 const SCRAPER_LIST_PAGE = [
   // {
   //   urlSite: `https://batdongsan.com.vn/ban-can-ho-chung-cu-${SCRAPER_LIST_ITEM.opalRiverside}?sortValue=1`,
@@ -54,6 +71,12 @@ const SCRAPER_LIST_PAGE = [
   // },
 ];
 
+/**
+ * Relative publish-date labels shown on listing cards (Vietnamese),
+ * converted to absolute dates by `processDate` in utils/batdongsan/commons.js.
+ * @readonly
+ * @enum {string}
+ */
 const TYPE_DATE = {
   TODAY: "Đăng hôm nay",
   YESTERDAY: "Đăng hôm qua",

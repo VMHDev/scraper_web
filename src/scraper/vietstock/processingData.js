@@ -1,7 +1,29 @@
+/**
+ * @file processingData.js
+ * @description Transforms raw finance.vietstock.vn data into the row format
+ * used for the CSV export.
+ */
 const { checkIndexIsChecked } = require("./../../utils/vietstock/commons");
 
+/** Warning label (Vietnamese) shown for flagged stocks on vietstock.vn. */
 const TEXT_WARNINGS = "Đang bị cảnh báo";
 
+/**
+ * Converts raw scraped Vietstock data into export rows.
+ *
+ * The profile/index/finance blocks are matched by array index or by their
+ * Vietnamese labels because the site renders fixed-order tables without
+ * stable field ids (fragile if the site changes its layout).
+ * Missing sections are filled with empty rows so every stock produces the
+ * same row layout; rows are then sorted by `id` and the `id` stripped.
+ *
+ * @param {Object} dataInfo - Raw data from scraperVietstock.
+ * @param {Array<{id: number, infoChecked: string, typeInfo: string}>} [dataInfo.indexStocks]
+ * @param {{infoWarnings: string, infoPrice: string}} [dataInfo.priceStocks]
+ * @param {Object} [dataInfo.financialStocks] - Nested financial data groups.
+ * @param {Array<{id: number, title: string, value: string}>} [dataInfo.profileStocks]
+ * @returns {Array<{title: string, value: string|number}>} Ordered export rows.
+ */
 const processingData = (dataInfo) => {
   const dataScraper = [];
 
@@ -9,6 +31,7 @@ const processingData = (dataInfo) => {
   if (dataInfo?.profileStocks) {
     dataInfo?.profileStocks?.forEach((item, idx) => {
       if (idx === 0) {
+        // Listing date is "dd/mm/yyyy" - keep only the year
         dataScraper.push({
           id: 0,
           title: "Year Of Listing",
@@ -16,6 +39,7 @@ const processingData = (dataInfo) => {
         });
       }
       if (idx === 1) {
+        // IPO price in VND - strip thousand separators, convert to thousands
         dataScraper.push({
           id: 6,
           title: "Price Init",
@@ -89,12 +113,15 @@ const processingData = (dataInfo) => {
   }
 
   /////////////////////////////////////////////////
+  // "x" when the stock is flagged with a trading warning
   dataScraper.push({
     id: 5,
     title: "Warnings",
     value: dataInfo?.priceStocks?.infoWarnings === TEXT_WARNINGS ? "x" : "",
   });
   /////////////////////////////////////////////////
+  // A stock may belong to neither VN30 nor HNX30; add an empty row so the
+  // row layout stays consistent across all stocks
   const checkExistVNHNX = (obj) => obj.title === "VN30/HNX30";
   const isExistVNHNX = dataScraper.some(checkExistVNHNX);
   console.log("isExistVNHNX", isExistVNHNX);
@@ -108,6 +135,12 @@ const processingData = (dataInfo) => {
 
   /////////////////////////////////////////////////
   const fs = dataInfo?.financialStocks;
+  /**
+   * Splits a change string like `"+500 (+1.2%)"` into value and percent.
+   * @param {string} str - Raw change text.
+   * @returns {{value: string, percent: string}} Parsed parts; empty percent
+   * when the parenthesized part is missing.
+   */
   const parseChange = (str) => {
     if (!str) return { value: "", percent: "" };
     const match = str.match(/^(.+?)\s*\((.+?)\)$/);
@@ -116,6 +149,7 @@ const processingData = (dataInfo) => {
       : { value: str, percent: "" };
   };
   const priceChange = parseChange(fs?.priceInfo?.change);
+  // Field order in the exported CSV (sorted by id at the end)
   const fsFields = [
     // priceInfo
     { id: 7, title: "Price", value: fs?.priceInfo?.price ?? "" },

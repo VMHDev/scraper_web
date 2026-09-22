@@ -1,3 +1,8 @@
+/**
+ * @file commons.js
+ * @description URL builders and checkbox helpers for the
+ * finance.vietstock.vn scraper.
+ */
 const {
   SCRAPER_TYPE_STOCKS,
   SCRAPER_LIST_ITEM_TEST,
@@ -17,7 +22,15 @@ const {
   SCRAPER_LIST_ITEM_HNX30,
 } = require("../../constants/stocks");
 
+/**
+ * Builds the list of Vietstock company-profile pages to scrape for a
+ * stock group. Every switch branch applies the same URL template to its
+ * ticker list.
+ * @param {string} type - One of SCRAPER_TYPE_STOCKS.
+ * @returns {Array<{symbolStock: string, urlSite: string}>} Pages to scrape.
+ */
 const getListScraperVietstock = (type) => {
+  // Each case maps its ticker list to the site's per-stock URL template
   switch (type) {
     case SCRAPER_TYPE_STOCKS.TEST:
       return SCRAPER_LIST_ITEM_TEST.map((item) => {
@@ -128,6 +141,11 @@ const getListScraperVietstock = (type) => {
   }
 };
 
+/**
+ * Returns the timestamped CSV export path for a stock group.
+ * @param {string} type - One of SCRAPER_TYPE_STOCKS.
+ * @returns {string} Path like `src/data/vietstock-<type>-<timestamp>.csv`.
+ */
 const getURLExportCSV = (type) => {
   const dateNow = new Date().getTime();
   switch (type) {
@@ -164,6 +182,12 @@ const getURLExportCSV = (type) => {
   }
 };
 
+/**
+ * Converts a FontAwesome checkbox class into a CSV marker.
+ * Used to flag index membership (VN30/HNX30), margin trading and ETF lists.
+ * @param {string} value - CSS class string scraped from the <i> icon element.
+ * @returns {string} `"x"` when the checkbox is checked, otherwise `""`.
+ */
 const checkIndexIsChecked = (value) => {
   if (value.includes("fa-check-square-o")) {
     return "x";

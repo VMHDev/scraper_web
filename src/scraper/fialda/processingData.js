@@ -1,9 +1,36 @@
+/**
+ * @file processingData.js
+ * @description Transforms raw fwt.fialda.com data into the row format used
+ * for the CSV export.
+ */
 const { removeUnit } = require("./../../utils/commons");
 
+/**
+ * Converts raw scraped Fialda data into export rows.
+ *
+ * The overview/finance blocks are matched by array index because the site
+ * renders them as fixed-order grids/tables without stable field labels
+ * (fragile if the site changes its layout):
+ * - overview[4] = Capitalization, [6] = Liquidity, [7] = 52W min - max price
+ * - financeOne[1] = EPS, [2] = P/E, [6] = P/B
+ * - financeTwo[0..3] = Quick Ratio, Current Ratio, D/E, Debt ratio (DTI)
+ *
+ * Missing sections are filled with empty rows so every stock produces the
+ * same row layout; rows are then sorted by `id` and the `id` stripped.
+ *
+ * @param {Object} dataInfo - Raw data from scraperFialda.
+ * @param {string} [dataInfo.intro] - Header text containing the exchange name.
+ * @param {string} [dataInfo.price] - Current price text.
+ * @param {Array<{id: number, title: string, value: string}>} [dataInfo.overview]
+ * @param {Array<{id: number, title: string, value: string}>} [dataInfo.financeOne]
+ * @param {Array<{id: number, title: string, value: string}>} [dataInfo.financeTwo]
+ * @returns {Array<{title: string, value: string}>} Ordered export rows.
+ */
 const processingData = (dataInfo) => {
   const dataScraper = [];
   /////////////////////////////////////////////////
   if (dataInfo?.intro) {
+    // Intro text is "<label>:<exchange>" - keep only the exchange name
     const arrIntro = dataInfo?.intro.split(":");
     dataScraper.push({
       id: 0,
@@ -41,6 +68,7 @@ const processingData = (dataInfo) => {
           value: removeUnit(item?.value || ""),
         });
       } else if (idx === 7) {
+        // Value is "<min> - <max>" - split into two separate rows
         const arrPrice = item?.value.split(" - ");
         dataScraper.push({
           id: 2,

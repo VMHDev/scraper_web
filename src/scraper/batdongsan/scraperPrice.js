@@ -1,3 +1,23 @@
+/**
+ * @file scraperPrice.js
+ * @description Page-level scraper that extracts real-estate listing cards
+ * (title, link, price, area, price/m², publish date) from a
+ * batdongsan.com.vn listing page.
+ */
+
+/**
+ * Scrapes all listing cards on a batdongsan.com.vn search result page.
+ *
+ * The extraction runs inside the page via `$$eval` over every
+ * `#product-lists-web > div.js__card` element; optional chaining is used
+ * everywhere because individual cards may miss some fields.
+ *
+ * @param {import('puppeteer').Browser} browser - Shared browser instance.
+ * @param {string} url - URL of the listing page to scrape.
+ * @returns {Promise<Array<{id: number, title: string, link: string, price: string, area: string, pricePerM2: string, date: string}>>}
+ * Resolves with the scraped rows (empty array when the page fails to load),
+ * or rejects on unexpected errors.
+ */
 const scraperPrice = (browser, url) =>
   new Promise(async (resolve, reject) => {
     let dataScraper = [];
@@ -7,6 +27,7 @@ const scraperPrice = (browser, url) =>
       console.log(">> Open new page ...");
       await pageInfo.goto(url);
       console.log(">> Accessing " + url);
+      // The search form is a reliable indicator that the listing loaded
       await pageInfo.waitForSelector("#boxSearchForm").catch((err) => {
         console.log("Error Scraper >>> ", JSON.stringify(err));
         isHasError = true;

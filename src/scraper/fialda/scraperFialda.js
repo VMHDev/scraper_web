@@ -1,3 +1,25 @@
+/**
+ * @file scraperFialda.js
+ * @description Page-level scraper that extracts company info (exchange,
+ * current price, overview metrics and finance ratios) from a
+ * fwt.fialda.com stock finance page.
+ */
+
+/**
+ * Scrapes Fialda finance data for a single stock.
+ *
+ * Separator symbols ("-0-" ... "-9-") are not real tickers: they resolve
+ * immediately with null fields so the exported CSV keeps a blank column
+ * between industry groups.
+ *
+ * All selectors depend on the site's current DOM structure; `$eval`/`$$eval`
+ * callbacks run inside the browser context.
+ *
+ * @param {import('puppeteer').Browser} browser - Shared browser instance.
+ * @param {string} url - URL of the stock's finance page.
+ * @param {string} symbol - Stock ticker, or a "-N-" separator marker.
+ * @returns {Promise<{intro: string|null, price: string|null, overview: Array|null, financeOne: Array|null, financeTwo: Array|null}>}
+ */
 const scraperFialda = (browser, url, symbol) =>
   new Promise(async (resolve, reject) => {
     let dataScraper = {
@@ -20,6 +42,7 @@ const scraperFialda = (browser, url, symbol) =>
       symbol === "-8-" ||
       symbol === "-9-"
     ) {
+      // Separator row: skip scraping, emit an empty column
       resolve(dataScraper);
       return;
     }
@@ -47,6 +70,8 @@ const scraperFialda = (browser, url, symbol) =>
       dataScraper.price = dataPrice;
 
       //////////////////////////////////////////////////////////
+      // Overview grid: items 3 and 7 are progress bars (min - max ranges),
+      // the other items hold a single numeric value
       const dataOverview = await pageInfo.$$eval(
         "div[id^='top-'] > div.card-body > div.info-cp > div:nth-child(2) > div.grid-cp > div.grid-cp-item",
         (els) => {

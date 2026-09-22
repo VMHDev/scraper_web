@@ -1,3 +1,7 @@
+/**
+ * @file commons.js
+ * @description URL builders for the dstock.vndirect.com.vn (D-Rating) scraper.
+ */
 const {
   SCRAPER_TYPE_STOCKS,
   SCRAPER_LIST_ITEM_TEST,
@@ -15,7 +19,14 @@ const {
   SCRAPER_LIST_ITEM_OTHES,
 } = require("../../constants/stocks");
 
+/**
+ * Builds the list of D-Rating pages to scrape for a stock group.
+ * Every switch branch applies the same URL template to its ticker list.
+ * @param {string} type - One of SCRAPER_TYPE_STOCKS.
+ * @returns {Array<{symbolStock: string, urlSite: string}>} Pages to scrape.
+ */
 const getListScraperDStock = (type) => {
+  // Each case maps its ticker list to the site's per-stock URL template
   switch (type) {
     case SCRAPER_TYPE_STOCKS.TEST:
       return SCRAPER_LIST_ITEM_TEST.map((item) => {
@@ -112,6 +123,11 @@ const getListScraperDStock = (type) => {
   }
 };
 
+/**
+ * Returns the timestamped CSV export path for a stock group.
+ * @param {string} type - One of SCRAPER_TYPE_STOCKS.
+ * @returns {string} Path like `src/data/dstock-<type>-<timestamp>.csv`.
+ */
 const getURLExportCSV = (type) => {
   const dateNow = new Date().getTime();
   switch (type) {

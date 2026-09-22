@@ -1,3 +1,9 @@
+/**
+ * @file scraperControllerEvaluation.js
+ * @description Orchestrates scraping of stock evaluation data from
+ * tcinvest.tcbs.com.vn and exports one pivoted CSV per stock group
+ * (rows = metrics, columns = stock symbols).
+ */
 const fs = require("fs");
 const converter = require("json-2-csv");
 const startBrowser = require("../../configs/browser");
@@ -6,8 +12,17 @@ const processingDataEvaluation = require("./processingDataEvaluation");
 const { SCRAPER_TYPE_STOCKS } = require("../../constants/stocks");
 const { getListScraper, getURLExportCSV } = require("../../utils/tcbs/commons");
 
+/** Stock group to scrape (see SCRAPER_TYPE_STOCKS). */
 const type = SCRAPER_TYPE_STOCKS.REALESTATE_I;
 
+/**
+ * Main controller for the TCBS evaluation scraper.
+ * Scrapes every ticker of the configured group, merges results into a
+ * pivot table (`dataSummary`) where each row is a metric and each column a
+ * stock symbol, and writes it to a timestamped CSV.
+ * A failing ticker is skipped so the rest of the group still exports.
+ * @returns {Promise<void>}
+ */
 const scraperController = async () => {
   try {
     const lstPageScraper = getListScraper(type);
@@ -30,6 +45,8 @@ const scraperController = async () => {
         const dataScraper = processingDataEvaluation(dataInfo);
         console.log("dataScraper", JSON.stringify(dataScraper));
 
+        // Pivot merge: keep one row per metric title and add the current
+        // symbol as a new column, preserving values scraped previously
         dataSummary = dataScraper.map((itemScraper, idx) => {
           return {
             title: itemScraper.title,

@@ -1,3 +1,8 @@
+/**
+ * @file scraperController.js
+ * @description Fialda scraper v1: exports one JSON snapshot and one CSV file
+ * per stock ticker.
+ */
 const fs = require("fs");
 const converter = require("json-2-csv");
 const startBrowser = require("./../../configs/browser");
@@ -6,6 +11,13 @@ const processingData = require("./processingData");
 const { SCRAPER_TYPE_STOCKS } = require("./../../constants/stocks");
 const { getListScraperFialda } = require("./../../utils/fialda/commons");
 
+/**
+ * Main controller (v1) for the fwt.fialda.com scraper.
+ * For each ticker of the AGRICULTURE group: scrapes the finance page,
+ * writes a raw JSON snapshot, then a processed CSV.
+ * Prefer scraperControllerV2 for a single combined CSV export.
+ * @returns {Promise<void>}
+ */
 const scraperController = async () => {
   try {
     const lstPageScraper = getListScraperFialda(
