@@ -9,7 +9,10 @@ const converter = require("json-2-csv");
 const startBrowser = require("../../configs/browser");
 const scraperFialda = require("./scraperFialda");
 const processingData = require("./processingData");
-const { SCRAPER_TYPE_STOCKS } = require("../../constants/stocks");
+const {
+  SCRAPER_TYPE_STOCKS,
+  SCRAPER_LIST_ITEM_TEST,
+} = require("../../constants/stocks");
 const {
   getListScraperFialda,
   getURLExportCSV,
@@ -69,6 +72,30 @@ const scraperController = async () => {
   console.log("dataSummary", dataSummary);
 
   // Write file csv
+  await writeCSV(dataSummary, type);
+
+  // TEST stocks are a subset of INVESTED, so when scraping INVESTED also
+  // export a TEST CSV by filtering the already-scraped data (no re-scrape).
+  if (type === SCRAPER_TYPE_STOCKS.INVESTED) {
+    const dataSummaryTest = dataSummary.map((row) => {
+      const rowTest = { title: row.title };
+      SCRAPER_LIST_ITEM_TEST.forEach((symbol) => {
+        if (symbol in row) rowTest[symbol] = row[symbol];
+      });
+      return rowTest;
+    });
+    await writeCSV(dataSummaryTest, SCRAPER_TYPE_STOCKS.TEST);
+  }
+};
+
+/**
+ * Writes the pivot table to the group's timestamped CSV, creating the
+ * output directory when missing.
+ * @param {Array<Object>} dataSummary - Rows of `{ title, <symbol>: value }`.
+ * @param {string} type - One of SCRAPER_TYPE_STOCKS.
+ * @returns {Promise<void>}
+ */
+const writeCSV = async (dataSummary, type) => {
   const urlExportCSV = getURLExportCSV(type);
   const directoryPath = path.dirname(urlExportCSV);
   if (!fs.existsSync(directoryPath)) {
