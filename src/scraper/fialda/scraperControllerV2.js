@@ -76,10 +76,14 @@ const scraperController = async () => {
 
   // TEST stocks are a subset of INVESTED, so when scraping INVESTED also
   // export a TEST CSV by filtering the already-scraped data (no re-scrape).
+  // Columns are ordered by symbol descending (Z -> A).
   if (type === SCRAPER_TYPE_STOCKS.INVESTED) {
+    const lstSymbolTestDesc = [...SCRAPER_LIST_ITEM_TEST].sort((a, b) =>
+      b.localeCompare(a),
+    );
     const dataSummaryTest = dataSummary.map((row) => {
       const rowTest = { title: row.title };
-      SCRAPER_LIST_ITEM_TEST.forEach((symbol) => {
+      lstSymbolTestDesc.forEach((symbol) => {
         if (symbol in row) rowTest[symbol] = row[symbol];
       });
       return rowTest;
