@@ -1,12 +1,15 @@
 # Troubleshooting
 
-> **Last updated**: 2026-09-23
+> **Last updated**: 2026-10-16
 
 ## Puppeteer fails to launch
 
 **Symptom**: console shows `Start browser failed: ...`
 
-- Re-run `npm install` — the Chromium download may have failed.
+- Re-run `npm install` or `yarn install` — the Chromium download may have
+  failed or the package manager may have skipped install scripts.
+- If Chromium is still missing, run `npm run install:browser` or
+  `yarn install:browser` to download the revision pinned by Puppeteer 19.8.0.
 - On Windows, check that antivirus/Defender is not blocking the Chromium
   executable under `node_modules/puppeteer`.
 - In restricted/CI environments keep `--disable-setuid-sandbox` (already set

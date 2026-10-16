@@ -1,25 +1,36 @@
 # Quick Start
 
-> **Last updated**: 2026-09-23
+> **Last updated**: 2026-10-16
 
 Get the scraper running locally in a few minutes.
 
 ## Prerequisites
 
-| Requirement | Notes                                                        |
-| ----------- | ------------------------------------------------------------ |
-| Node.js     | v16+ recommended (uses CommonJS modules)                     |
-| npm         | Bundled with Node.js                                         |
-| Chromium    | Downloaded automatically by Puppeteer on first `npm install` |
+| Requirement | Notes                                                     |
+| ----------- | --------------------------------------------------------- |
+| Node.js     | v16+ recommended (uses CommonJS modules)                  |
+| npm or Yarn | npm is bundled with Node.js; Yarn 1.x is also supported   |
+| Chromium    | Downloaded automatically by Puppeteer during installation |
 
 ## Install
 
 ```bash
 npm install
+# or
+yarn install
 ```
 
 Only needed the first time (or when dependencies change). Puppeteer downloads
-a compatible Chromium build into `node_modules`.
+a compatible Chromium build into the user cache.
+
+If the package manager skipped Puppeteer's install script and startup reports
+`Could not find Chromium`, install the pinned browser explicitly:
+
+```bash
+npm run install:browser
+# or
+yarn install:browser
+```
 
 ## Run
 
