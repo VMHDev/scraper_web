@@ -22,7 +22,7 @@ const {
 const type = SCRAPER_TYPE_STOCKS.INVESTED; // INVESTED TEST
 
 /**
- * Main controller (v2) for the fwt.fialda.com scraper.
+ * Main controller (v2) for the fwt.fialda.vn scraper.
  * Scrapes every ticker of the configured group, merges results into a
  * pivot table (`dataSummary`) where each row is a metric and each column a
  * stock symbol, and writes it to a timestamped CSV (creating the output

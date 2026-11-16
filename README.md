@@ -28,7 +28,7 @@ exporting timestamped CSV files to `src/data/`.
   - In src/constants/batdongsan.js
   - Add item in SCRAPER_LIST_PAGE
 
-## Web: fwt.fialda.com
+## Web: fwt.fialda.vn
 
 - In file index.js set typeScraper = TYPE_SCRAPER.FIALDA;
 - Two option

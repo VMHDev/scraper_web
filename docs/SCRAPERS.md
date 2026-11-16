@@ -19,7 +19,7 @@ One section per supported website. Select the target via `typeScraper` in
 - **Output**: per page, a raw JSON snapshot **and** a cleaned timestamped CSV
   (`batdongsan-<slug>.json`, `batdongsan-<slug>-<timestamp>.csv`).
 
-## Fialda — fwt.fialda.com
+## Fialda — fwt.fialda.vn
 
 Two controller variants:
 

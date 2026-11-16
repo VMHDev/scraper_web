@@ -1,6 +1,6 @@
 /**
  * @file processingData.js
- * @description Transforms raw fwt.fialda.com data into the row format used
+ * @description Transforms raw fwt.fialda.vn data into the row format used
  * for the CSV export.
  */
 const { removeUnit } = require("./../../utils/commons");

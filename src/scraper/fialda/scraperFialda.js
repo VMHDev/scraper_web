@@ -2,7 +2,7 @@
  * @file scraperFialda.js
  * @description Page-level scraper that extracts company info (exchange,
  * current price, overview metrics and finance ratios) from a
- * fwt.fialda.com stock finance page.
+ * fwt.fialda.vn stock finance page.
  */
 
 /**

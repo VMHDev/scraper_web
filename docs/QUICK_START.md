@@ -50,7 +50,7 @@ Available targets (see [src/constants/commons.js](../src/constants/commons.js)):
 | Constant          | Site                   |
 | ----------------- | ---------------------- |
 | `BATDONGSAN`      | batdongsan.com.vn      |
-| `FIALDA`          | fwt.fialda.com         |
+| `FIALDA`          | fwt.fialda.vn          |
 | `VIETSTOCK`       | vietstock.vn           |
 | `TAKEPROFIT`      | takeprofit.vn          |
 | `DSTOCK`          | dstock.vndirect.com.vn |

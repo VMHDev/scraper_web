@@ -12,7 +12,7 @@ const { SCRAPER_TYPE_STOCKS } = require("./../../constants/stocks");
 const { getListScraperFialda } = require("./../../utils/fialda/commons");
 
 /**
- * Main controller (v1) for the fwt.fialda.com scraper.
+ * Main controller (v1) for the fwt.fialda.vn scraper.
  * For each ticker of the AGRICULTURE group: scrapes the finance page,
  * writes a raw JSON snapshot, then a processed CSV.
  * Prefer scraperControllerV2 for a single combined CSV export.
